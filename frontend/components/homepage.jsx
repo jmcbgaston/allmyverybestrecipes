@@ -11,7 +11,7 @@ const Homepage = props => {
     ) : (
         <nav>
             <h1>Welcome, {props.currentUser.display_name}</h1>
-            <button type="submit" onClick={logout}>Log Out</button>
+            <button type="submit" onClick={props.logout}>Log Out</button>
         </nav>
     )
 
