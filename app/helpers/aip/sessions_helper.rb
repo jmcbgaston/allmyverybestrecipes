@@ -1,2 +1,2 @@
-module Aip::SessionsHelper
+module Api::SessionsHelper
 end
