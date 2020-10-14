@@ -1,4 +1,4 @@
-#workspace 
+#workspace
 *.code-workspace
 npm_setup.sh
 #frontend
