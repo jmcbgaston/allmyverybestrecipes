@@ -10,7 +10,7 @@ const Homepage = props => {
         </nav>
     ) : (
         <nav>
-            <h1>Welcome, {props.currentUser.username}</h1>
+            <h1>Welcome, {props.currentUser.display_name}</h1>
             <button type="submit" onClick={logout}>Log Out</button>
         </nav>
     )

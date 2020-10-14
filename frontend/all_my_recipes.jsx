@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 users: { 
                     [window.currentUser.id]: {
                         id: window.currentUser.id, 
-                        username: window.currentUser.username, 
+                        display_name: window.currentUser.display_name, 
                         email: window.currentUser.email 
                     } 
                 }
