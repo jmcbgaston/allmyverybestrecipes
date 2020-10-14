@@ -64,5 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let root = document.getElementById("root")
     ReactDOM.render(<Root store={store} />, root)
+
+    console.log("hi")
 })
 

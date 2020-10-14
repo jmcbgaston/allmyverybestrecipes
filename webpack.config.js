@@ -34,8 +34,8 @@ module.exports = {
     ]
   },
   devtool: 'inline-source-map',
-  watch: process.env.NODE_ENV === "development" ? true : false, 
-  watchOptions: { poll: process.env.NODE_ENV === "development" ? true : false }
+  watch: process.env.NODE_ENV !== "production" ? true : false, 
+  watchOptions: { poll: process.env.NODE_ENV !== "production" ? true : false }
   // watch: true,
   // watchOptions: {
   //   poll: true,
