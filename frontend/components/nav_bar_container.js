@@ -1,6 +1,6 @@
 
 import { connect } from "react-redux"
-import Homepage from "./homepage"
+import NavBar from "./nav_bar"
 import { logout } from "../actions/session_actions"
 
 const mSTP = ({ entities: { users }, session }) => {
@@ -24,4 +24,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(Homepage)
+export default connect(mSTP, mDTP)(NavBar)

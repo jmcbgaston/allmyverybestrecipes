@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Homepage = props => {
+const NavBar = props => {
     return (!props.currentUserId) ? (
         <nav>
             <Link to="/signup">Join Now</Link>
@@ -17,7 +17,7 @@ const Homepage = props => {
 
 }
 
-export default Homepage
+export default NavBar
 
 // THIS PAGE NEEDS FIXING
 // I dont like how we're getting the user, 
