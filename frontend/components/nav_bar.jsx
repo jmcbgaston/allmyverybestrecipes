@@ -7,6 +7,7 @@ const NavBar = props => {
         <nav>
             <Link to="/signup">Join Now</Link>
             <Link to="/login">Log In</Link>
+            <button type="submit" onClick={() => props.login(props.demoUser)}>Demo Login</button>
         </nav>
     ) : (
         <nav>

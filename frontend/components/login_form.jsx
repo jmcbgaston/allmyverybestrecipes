@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, idx) => {
-                    <li>{error}</li>
+                    return <li key={idx}>{error}</li>
                 })}
             </ul>
         )
@@ -54,11 +54,6 @@ class LoginForm extends React.Component {
                     <button type="submit">Sign In</button>
                     <br/>
                     <button>{this.props.navLink}</button>
-                    
-                    {/* <button type="submit"
-                        value="New to Allmyverybestrecipes? Join for free!" /> */}
-                    {/* add this when you get everything else to work */}
-                    
                 </form>
             </div>
         )

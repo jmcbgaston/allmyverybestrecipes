@@ -1,7 +1,7 @@
 
 import { connect } from "react-redux"
 import NavBar from "./nav_bar"
-import { logout } from "../actions/session_actions"
+import { logout, login } from "../actions/session_actions"
 
 const mSTP = ({ entities: { users }, session }) => {
 // why can do ^ this here but not in my presentational component
@@ -12,7 +12,11 @@ const mSTP = ({ entities: { users }, session }) => {
 
     return {
         currentUserId: userId, 
-        currentUser
+        currentUser, 
+        demoUser: { 
+            email: "demo@login.com", 
+            password: "password"
+        }
     }
 // i dont like these props
 
@@ -20,7 +24,8 @@ const mSTP = ({ entities: { users }, session }) => {
 
 const mDTP = dispatch => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()), 
+        login: user => dispatch(login(user))
     }
 }
 

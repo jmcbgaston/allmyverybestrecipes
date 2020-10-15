@@ -1,13 +1,4 @@
 
-// TEST
-
-import { login, logout, signup } from './actions/session_actions'
-window.login = login
-window.logout = logout
-window.signup = signup
-
-//
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -17,9 +8,6 @@ import Root from './components/root'
 document.addEventListener("DOMContentLoaded", () => {
 
     let store;
-    // let store = configureStore();
-    // window.getState = store.getState
-    // window.dispatch = store.dispatch
 
     if (window.currentUser) {
         const preloadedState = {
@@ -44,25 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 // postErrors: []
             }
         };
-
-        // if current user exists, set up with updated state
         store = configureStore(preloadedState);
         // delete window.currentUser;
-
-        // TESTING
-            window.getState = store.getState
-            window.dispatch = store.dispatch
-        //
-
     } else {
-
-        // if no current user then set up with default state
         store = configureStore();
-
-        // TESTING
-            window.getState = store.getState
-            window.dispatch = store.dispatch
-        //
     }
 
     let root = document.getElementById("root")
