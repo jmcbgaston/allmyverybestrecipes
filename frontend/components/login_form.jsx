@@ -34,26 +34,27 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        // debugger;
         return (
             <div>
                 <p>Sign in with email.</p>
-                <p>{this.props.navLink}</p>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderErrors()}
-                    <label>e</label>
                     <input type="text"
                         value={this.state.email}
+                        placeholder="Email"
                         onChange={this.handleChange("email")}
-                    />
+                        />
                     <br/>
-                    <label>p</label>
                     <input type="password"
                         value={this.state.password}
+                        placeholder="Password (minimum 6 characters)"
                         onChange={this.handleChange("password")}
-                    />
+                        />
                     <br/>
                     <button type="submit">Sign In</button>
+                    <br/>
+                    <button>{this.props.navLink}</button>
+                    
                     {/* <button type="submit"
                         value="New to Allmyverybestrecipes? Join for free!" /> */}
                     {/* add this when you get everything else to work */}

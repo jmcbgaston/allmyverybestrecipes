@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const mSTP = state => {
     return {
         errors: state.errors.sessionErrors,
-        navLink: <Link to="/signup">Sign Up</Link>, 
+        navLink: <Link to="/signup">New to Allmyverybestrecipes? Join for free!</Link>, 
     }
 }
 
