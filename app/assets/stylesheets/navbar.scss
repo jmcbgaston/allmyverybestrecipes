@@ -1,0 +1,67 @@
+
+.header-bar {
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    overflow: auto;
+}
+
+.logo {
+    margin-left: 134px;
+    height: 27.6px;
+    width: 120px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 134px;
+    width: 244px;
+    height: 28px;
+    
+    a {
+        align-self: center;
+        border-right: #D0D0D0 solid 1px;
+
+        i {
+            margin-right: 11px;
+            margin-left: 11px;
+        }
+    }
+
+    a:last-child {
+        border-right: none;
+    }
+
+    .signup {
+        font-weight: bold;
+    }
+
+    button {
+        font-size: 100%;
+        font-family: inherit;
+        border: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+}
+
+
+.logged-in-nav-container {
+    margin-right: 134px;
+}
+
+.your-profile-dropdown {
+    display: flex;
+    flex-direction: row;
+}

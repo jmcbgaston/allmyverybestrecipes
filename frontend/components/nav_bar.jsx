@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom';
 
 const NavBar = props => {
     return (!props.currentUserId) ? (
-        <nav>
-            <Link to="/signup">Join Now</Link>
-            <Link to="/login">Log In</Link>
-            <button type="submit" onClick={() => props.login(props.demoUser)}>Demo Login</button>
+        <nav className="nav-container">
+            <Link className="signup" to="/signup"><i>Join Now</i></Link>
+            <Link className="login" to="/login"><i>Login</i></Link>
+            <button type="submit" className="demo" onClick={() => props.login(props.demoUser)}><i>Demo Login</i></button>
         </nav>
     ) : (
-        <nav>
-            <h1>Welcome, {props.currentUser.display_name}</h1>
-            <button type="submit" onClick={props.logout}>Log Out</button>
+        <nav className="logged-in-nav-container">
+            <ul className="your-profile-dropdown">
+                <p><i>Your Profile ▾</i></p>
+                <Link to="/" onClick={props.logout}><i>Log Out</i></Link>
+            </ul>
         </nav>
     )
 

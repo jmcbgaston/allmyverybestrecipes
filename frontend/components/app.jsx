@@ -9,14 +9,12 @@ import LogInFormContainer from './login_form_container';
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/route_util';
 
-
 const App = () => {
   return (
-    <div>
-      <header>
-        <Link to="/" className="header-link">
-          <h1>All My Recipes</h1>
-          {/* replcae with logo */}
+    <div className="header-main">
+      <header className="header-bar">
+        <Link to="/">
+          <img className="logo" src="/assets/allrecipes-logo.png" alt="logo"/>
         </Link>
         <NavBarContainer />
       </header>
