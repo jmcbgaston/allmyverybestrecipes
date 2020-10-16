@@ -11,10 +11,13 @@ const NavBar = props => {
         </nav>
     ) : (
         <nav className="logged-in-nav-container">
-            <ul className="your-profile-dropdown">
-                <p><i>Your Profile ▾</i></p>
-                <Link to="/" onClick={props.logout}><i>Log Out</i></Link>
-            </ul>
+            <button className="yp-dropdown">Your Profile ▾
+                <ul className="yp-dropdown-content">
+                    <li>
+                        <Link to="/" onClick={props.logout}>Log Out</Link>
+                    </li>
+                </ul>
+            </button>
         </nav>
     )
 }

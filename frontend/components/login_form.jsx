@@ -10,6 +10,10 @@ class LoginForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+    
+    componentDidMount() {
+        this.props.removeSessionErrors()
+    }
 
     renderErrors() {
         return (
@@ -35,25 +39,32 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="login-form-top-level">
                 <p>Sign in with email.</p>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderErrors()}
-                    <input type="text"
-                        value={this.state.email}
-                        placeholder="Email"
-                        onChange={this.handleChange("email")}
-                        />
-                    <br/>
-                    <input type="password"
-                        value={this.state.password}
-                        placeholder="Password (minimum 6 characters)"
-                        onChange={this.handleChange("password")}
-                        />
-                    <br/>
-                    <button type="submit">Sign In</button>
-                    <br/>
-                    <button>{this.props.navLink}</button>
+                    <ul className="login-click-list">
+                        <li>
+                            <input type="text"
+                                value={this.state.email}
+                                placeholder="Email"
+                                onChange={this.handleChange("email")}
+                                />
+                        </li>
+                        <li>
+                            <input type="password"
+                                value={this.state.password}
+                                placeholder="Password (minimum 6 characters)"
+                                onChange={this.handleChange("password")}
+                                />
+                        </li>
+                        <li>
+                            <button type="submit">Sign In</button>
+                        </li>
+                        <li>
+                            <button className="nav-link-signup">{this.props.navLink}</button>
+                        </li>
+                    </ul>
                 </form>
             </div>
         )

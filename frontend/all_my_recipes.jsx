@@ -34,8 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         store = configureStore(preloadedState);
         // delete window.currentUser;
+
+        window.getState = store.getState
     } else {
         store = configureStore();
+        
+        window.getState = store.getState
     }
 
     let root = document.getElementById("root")

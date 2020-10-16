@@ -8,7 +8,6 @@
     width: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    overflow: auto;
 }
 
 .logo {
@@ -29,7 +28,7 @@
         border-right: #D0D0D0 solid 1px;
 
         i {
-            margin-right: 11px;
+            margin-right: 14px;
             margin-left: 11px;
         }
     }
@@ -48,6 +47,7 @@
         border: 0;
         padding: 0;
         background-color: white;
+        margin-left: 10px;
     }
 
     button:hover {
@@ -58,10 +58,44 @@
 
 
 .logged-in-nav-container {
+    display: flex;
     margin-right: 134px;
+    
+    button {
+        font-size: 100%;
+        font-family: inherit;
+        border: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
 }
 
-.your-profile-dropdown {
-    display: flex;
-    flex-direction: row;
+.yp-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.yp-dropdown:hover .yp-dropdown-content {
+    display: block;
+}
+
+.yp-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 8px;
+}
+
+.yp-dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
