@@ -17,7 +17,6 @@ const NavBar = props => {
             </ul>
         </nav>
     )
-
 }
 
 export default NavBar
