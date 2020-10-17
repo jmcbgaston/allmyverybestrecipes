@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Link } from 'react-router-dom' 
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class LoginForm extends React.Component {
                         <li>
                             <input type="password"
                                 value={this.state.password}
-                                placeholder="Password (minimum 6 characters)"
+                                placeholder="Password"
                                 onChange={this.handleChange("password")}
                                 />
                         </li>
@@ -62,7 +63,7 @@ class LoginForm extends React.Component {
                             <button type="submit">Sign In</button>
                         </li>
                         <li>
-                            <button className="nav-link-signup">{this.props.navLink}</button>
+                            {this.props.navLink}
                         </li>
                     </ul>
                 </form>

@@ -40,30 +40,36 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>Sign up with email.</p>
-                <p>{this.props.navLink}</p>
+            <div className="signup-form-top-level">
+                <p>Sign up with email. {this.props.navLink}</p>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderErrors()}
-                    <input type="text"
-                        value={this.state.display_name}
-                        placeholder="Display name"
-                        onChange={this.handleChange("display_name")}
-                    />
-                    <br/>
-                    <input type="text"
-                        value={this.state.email}
-                        placeholder="Email"
-                        onChange={this.handleChange("email")}
-                    />
-                    <br/>
-                    <input type="password"
-                        value={this.state.password}
-                        placeholder="Password"
-                        onChange={this.handleChange("password")}
-                    />
-                    <br/>
-                    <button type="submit">Create my account</button>
+                    <ul className="signup-click-list">
+                        <li>
+                            <input type="text"
+                                value={this.state.display_name}
+                                placeholder="Display name"
+                                onChange={this.handleChange("display_name")}
+                            />
+                        </li>
+                        <li>
+                            <input type="text"
+                                value={this.state.email}
+                                placeholder="Email"
+                                onChange={this.handleChange("email")}
+                            />
+                        </li>
+                        <li>
+                            <input type="password"
+                                value={this.state.password}
+                                placeholder="Password (minimum 6 characters)"
+                                onChange={this.handleChange("password")}
+                            />
+                        </li>
+                        <li>
+                            <button type="submit">Create my account</button>
+                        </li>
+                    </ul>
                 </form>
             </div>
         )

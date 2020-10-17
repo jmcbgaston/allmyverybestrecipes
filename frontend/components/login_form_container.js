@@ -6,19 +6,15 @@ import { login, removeSessionErrors } from "../actions/session_actions"
 import { Link } from 'react-router-dom' 
 
 const mSTP = state => {
-    // debugger
     return {
         errors: state.errors.sessionErrors,
-        // errors: state.errors.sessionErrors.errors,
-        // emptyError: state.errors.sessionErrors.emptyError, 
-        navLink: <Link to="/signup">New to Allmyverybestrecipes? <span className="join-for-free">Join for free!</span></Link> 
+        navLink: <Link to="/signup"><button className="nav-link-signup">New to Allmyverybestrecipes? <span className="join-for-free">Join for free!</span></button></Link>
     }
 }
 
 const mDTP = dispatch => {
     return {
         processForm: user => dispatch(login(user)),
-        // refreshError: () => dispatch(refreshError())
         removeSessionErrors: () => dispatch(removeSessionErrors())
     }
 }

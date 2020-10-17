@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const mSTP = state => {
     return {
         errors: state.errors.sessionErrors,
-        navLink: <Link to="/login">Already a member? Sign in!</Link>
+        navLink: <Link to="/login"><span className="nav-link-login">Already a member? Sign in!</span></Link>
     }
 }
 
