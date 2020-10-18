@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
         return (
             <ul className="form-errors">
                 {this.props.errors.map((error, idx) => {
-                    return <li key={idx}>error- {error}</li>
+                    return <li key={idx}>{error}</li>
                 })}
             </ul>
         )
