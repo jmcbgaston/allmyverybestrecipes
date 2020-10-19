@@ -1,4 +1,6 @@
 
+// not logged in
+
 .header-bar {
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     display: flex;
@@ -26,21 +28,21 @@
     a {
         align-self: center;
         border-right: #D0D0D0 solid 1px;
-
+        
         i {
             margin-right: 14px;
             margin-left: 11px;
         }
     }
-
+    
     a:last-child {
         border-right: none;
     }
-
+    
     .signup {
         font-weight: bold;
     }
-
+    
     button {
         font-size: 100%;
         font-family: inherit;
@@ -49,13 +51,14 @@
         background-color: white;
         margin-left: 10px;
     }
-
+    
     button:hover {
         cursor: pointer;
     }
-
+    
 }
 
+// logged in
 
 .logged-in-nav-container {
     display: flex;
@@ -69,7 +72,7 @@
         background-color: white;
     }
 
-    button:hover {
+    button a:hover {
         cursor: pointer;
     }
 }
@@ -77,6 +80,7 @@
 .yp-dropdown {
     position: relative;
     display: inline-block;
+    padding: 8px 0px
 }
 
 .yp-dropdown:hover .yp-dropdown-content {
@@ -86,16 +90,44 @@
 .yp-dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: 8px;
+    left: -14px;
+    font-family: "Source Sans Pro",Times,serif;
+    color: black;
+    padding: 0px 0px 8px;
+
+    p {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 16px 16px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    p:last-child {
+        border-top: 1px solid gray;
+    }
+
+    p:hover {
+        cursor: context-menu;
+    }
+    
+    li {
+        font-size: 16px;
+        font-family: 'Source Sans Pro', serif;
+        font-weight: bold;
+        padding: 8px 28px;
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    li:hover {
+        background-color: #F2F2F2;
+    }
+
 }
 
-.yp-dropdown-content li {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}

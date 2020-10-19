@@ -1,4 +1,15 @@
-
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  display_name    :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
 
     validates :display_name, :email, :session_token, presence: true, uniqueness: true
@@ -32,5 +43,13 @@ class User < ApplicationRecord
         self.save
         self.session_token
       end
+
+      has_many :recipes, 
+      foreign_key: :author_id,
+      class_name: "Recipe"
+
+      has_many :favorites, 
+      foreign_key: :favorited_id, 
+      class_name: "Recipe"
 
 end

@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id                 :bigint           not null, primary key
+#  title              :string           not null
+#  description        :string           not null
+#  directions         :string           not null
+#  prep_time          :integer          not null
+#  cook_time          :integer          not null
+#  number_of_servings :integer          not null
+#  author_id          :integer          not null
+#  favorited_id       :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  title: MyString
+  description: MyString
+  directions: MyString
+  prep_time: MyString
+  cook_time: MyString
+  ready_in: MyString
+  number_of_servings: MyString
+  recipe_yield: MyString
+
+two:
+  title: MyString
+  description: MyString
+  directions: MyString
+  prep_time: MyString
+  cook_time: MyString
+  ready_in: MyString
+  number_of_servings: MyString
+  recipe_yield: MyString
