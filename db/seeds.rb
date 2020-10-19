@@ -12,4 +12,6 @@
 #     password: "password"
 # })
 
+User.destroy_all
+
 User.create({ display_name: "demo", email: "demo@login.com", password: "password" })

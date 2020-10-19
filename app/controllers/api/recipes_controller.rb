@@ -11,7 +11,6 @@ class Api::RecipesController < ApplicationController
     end
     
     def create
-        # debugger
         @recipe = Recipe.new(recipe_params)
         @recipe.author_id = current_user.id
         if @recipe.save
@@ -21,9 +20,8 @@ class Api::RecipesController < ApplicationController
         end
     end
 
-    # untested
+    # untested 
     def update
-        debugger
         @recipe = Recipe.find_by(id: params[:id])
         if @recipe && @recipe.update(recipe_params)
             render "api/recipes/show"
@@ -35,6 +33,7 @@ class Api::RecipesController < ApplicationController
     def destroy
         @recipe = Recipe.find_by(id: params[:id])
         @recipe.destroy
+        render "api/recipes/show"
     end
 
     def recipe_params

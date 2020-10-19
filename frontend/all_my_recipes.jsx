@@ -1,6 +1,7 @@
 // TESTING
 
-import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe} from './util/recipe_api_util'
+// import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe} from './util/recipe_api_util'
+import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe } from './actions/recipe_actions'
 window.fetchRecipes = fetchRecipes
 window.fetchRecipe = fetchRecipe
 window.createRecipe = createRecipe
@@ -47,10 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // delete window.currentUser;
 
         window.getState = store.getState
+        window.dispatch = store.dispatch
     } else {
         store = configureStore();
         
         window.getState = store.getState
+        window.dispatch = store.dispatch
     }
 
     let root = document.getElementById("root")
