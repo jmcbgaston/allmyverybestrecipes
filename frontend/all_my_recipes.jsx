@@ -1,3 +1,14 @@
+// TESTING
+
+import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe} from './util/recipe_api_util'
+window.fetchRecipes = fetchRecipes
+window.fetchRecipe = fetchRecipe
+window.createRecipe = createRecipe
+window.updateRecipe = updateRecipe
+window.deleteRecipe = deleteRecipe
+
+//
+
 
 import React from 'react'
 import ReactDOM from 'react-dom'

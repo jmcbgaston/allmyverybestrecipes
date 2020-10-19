@@ -22,8 +22,8 @@
     display: flex;
     justify-content: space-between;
     margin-right: 134px;
-    width: 244px;
-    height: 28px;
+    width: 260px;
+    height: 32px;
     
     a {
         align-self: center;
@@ -46,10 +46,10 @@
     button {
         font-size: 100%;
         font-family: inherit;
-        border: 0;
-        padding: 0;
-        background-color: white;
-        margin-left: 10px;
+        padding: 5px;
+        background-color: #feaa25;
+        border-color: #feaa25;
+        color: white;
     }
     
     button:hover {

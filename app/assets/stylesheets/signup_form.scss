@@ -6,6 +6,9 @@
     margin-top: 50px;
     font-size: 25px;
     font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     p {
         padding: 18px 30px 8px;

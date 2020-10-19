@@ -2,24 +2,28 @@ class Api::RecipesController < ApplicationController
 
     def index
         @recipes = Recipe.all
+        render "api/recipes/index"
     end
 
     def show
-        @recipe = Recipe.find_by(id: params[:id])
+        @recipe = Recipe.find(params[:id])
         render "api/recipes/show"
     end
     
     def create
-        debugger
+        # debugger
         @recipe = Recipe.new(recipe_params)
-        if @recipe
+        @recipe.author_id = current_user.id
+        if @recipe.save
             render "api/recipes/show"
         else
             render json: @recipe.errors.full_messages, status: 422
         end
     end
 
+    # untested
     def update
+        debugger
         @recipe = Recipe.find_by(id: params[:id])
         if @recipe && @recipe.update(recipe_params)
             render "api/recipes/show"
@@ -34,6 +38,7 @@ class Api::RecipesController < ApplicationController
     end
 
     def recipe_params
+        # params.require(:recipe).permit(:title, :description, :directions, :prep_time, :cook_time, :number_of_servings)
         params.require(:recipe).permit(:title, :description, :directions, :prep_time, :cook_time, :number_of_servings)
     end
 
