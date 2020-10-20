@@ -1,0 +1,62 @@
+.yp-top-level {
+    background-color: yellow;
+    margin: 0px 100px;
+    height: 616px;
+}
+
+.display-name {
+    background-color: green;
+    color: white;
+    height: 77px;
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+    font-family: 'Source Sans Pro', arial;
+    font-size: 26px;
+}
+
+.yp-options {
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 48px;
+    font-family: 'Source Sans Pro', arial;
+    font-size: 18px;
+
+    li {
+        height: 100%;
+        width: 33.33%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        a {
+            display: block;
+            height: 100%;
+            width: 100%;
+
+            i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+        }
+
+        .active-option {
+            background-color: #feaa25;
+            color:white;
+            // display: block;
+            // height: 100%;
+            // width: 100%;
+            // justify-content: center;
+            // align-items: center;
+        }
+    }
+    
+    li:hover {
+        cursor: pointer;
+        background-color: #E6E6E6;
+    }
+    
+}

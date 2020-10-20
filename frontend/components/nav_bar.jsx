@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +14,7 @@ const NavBar = props => {
                 <ul className="yp-dropdown-content">
                     <p>ACCOUNT</p>
                     <li>
-                        Your Profile
+                        <Link to="/your-profile">Your Profile</Link>
                     </li>
                     <li>
                         <Link to="/" onClick={props.logout}>Log Out</Link>

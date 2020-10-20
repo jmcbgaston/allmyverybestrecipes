@@ -1,12 +1,12 @@
 // TESTING
 
-// import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe} from './util/recipe_api_util'
-import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe } from './actions/recipe_actions'
-window.fetchRecipes = fetchRecipes
-window.fetchRecipe = fetchRecipe
-window.createRecipe = createRecipe
-window.updateRecipe = updateRecipe
-window.deleteRecipe = deleteRecipe
+// // import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe} from './util/recipe_api_util'
+// import { fetchRecipes, fetchRecipe, createRecipe, updateRecipe, deleteRecipe } from './actions/recipe_actions'
+// window.fetchRecipes = fetchRecipes
+// window.fetchRecipe = fetchRecipe
+// window.createRecipe = createRecipe
+// window.updateRecipe = updateRecipe
+// window.deleteRecipe = deleteRecipe
 
 //
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 users: { 
                     [window.currentUser.id]: {
                         id: window.currentUser.id, 
-                        display_name: window.currentUser.display_name, 
+                        displayName: window.currentUser.displayName, 
                         email: window.currentUser.email 
                     } 
                 }
