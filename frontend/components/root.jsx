@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Provider } from 'react-redux';
 // https://react-redux.js.org/api/provider

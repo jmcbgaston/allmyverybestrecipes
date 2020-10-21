@@ -12,7 +12,7 @@ class YourProfile extends React.Component {
     render() {
         return(
             <div className="yp-top-level">
-                <h1 className="display-name">{this.props.currentUser.displayName}</h1>
+                <h1 className="display-name">{this.props.currentUser.display_name}</h1>
                 <ul className="yp-options">
                     <li>
                         <NavLink to="/your-profile/recipes" activeClassName="active-option"><i>Recipes</i></NavLink>

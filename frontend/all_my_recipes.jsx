@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom'
 import configureStore from './store/store';
 import Root from './components/root'
 
+import { fetchRecipes, fetchRecipe } from './actions/recipe_actions'
+window.fetchRecipes = fetchRecipes
+window.fetchRecipe = fetchRecipe
+
 document.addEventListener("DOMContentLoaded", () => {
 
     let store;
@@ -14,10 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 users: { 
                     [window.currentUser.id]: {
                         id: window.currentUser.id, 
-                        displayName: window.currentUser.displayName, 
+                        display_name: window.currentUser.display_name, 
                         email: window.currentUser.email 
                     } 
-                }
+                }, 
+                // recipes: {
+
+                // }
             }, 
             session: {
                 currentUser: window.currentUser.id
@@ -36,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.getState = store.getState
         window.dispatch = store.dispatch
+
+        // window.fetchRecipes = store.fetchRecipes
     } else {
         store = configureStore();
         
