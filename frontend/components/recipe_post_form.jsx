@@ -8,9 +8,10 @@ class RecipePostForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         this.props.action(this.state)
-
+            .then(data => this.props.history.push(`/recipes/${data.recipe.id}`))
     }
     
     handleChange(type) {
@@ -20,6 +21,7 @@ class RecipePostForm extends React.Component {
     }
 
     render() {
+        // debugger;
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -54,9 +56,18 @@ class RecipePostForm extends React.Component {
                             onChange={this.handleChange("number_of_servings")}/>
                     </label>
                     <button type="submit">{this.props.formType}</button>
+                    <button type="submit" onClick={() => dispatch(this.props.deleteRecipe(this.state.id))}>Delete Recipe</button>
                 </form>
             </div>
         )
+        
+        // return ( if (this.props.formType === "Update Post") {
+        //     return (
+        //         <div>
+        //             <button type="submit" onClick={() => dispatch(this.props.deleteRecipe(this.state.id))}></button>
+        //         </div>
+        //     )
+        // })
     }
 }
 

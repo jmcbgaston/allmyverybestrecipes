@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import RecipePostForm from './recipe_post_form'
-import { createRecipe } from '../actions/recipe_actions'
+import { createRecipe, deleteRecipe } from '../actions/recipe_actions'
 
 const mSTP = state => {
     let authorId = state.session.currentUser
@@ -20,7 +20,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        action: recipe => dispatch(createRecipe(recipe))
+        action: recipe => dispatch(createRecipe(recipe)), 
+        deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId))
     }
 }
 

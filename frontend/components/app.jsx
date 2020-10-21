@@ -7,6 +7,8 @@ import LogInFormContainer from './login_form_container';
 import YourProfileContainer from './your_profile_container'
 import CreateRecipeFormContainer from '../components/create_recipe_form_container' 
 import EditRecipeFormContainer from '../components/edit_recipe_form_container' 
+import RecipeShowContainer from '../components/recipe_show_container' 
+import RecipeIndexContainer from '../components/recipe_index_container'
 
 
 import { AuthRoute } from '../util/route_util';
@@ -20,6 +22,7 @@ const App = () => {
           <img className="logo" src="/assets/allrecipes-logo.png" alt="logo"/>
         </Link>
         <NavBarContainer />
+        <RecipeIndexContainer />
       </header>
       <Switch>
         <AuthRoute exact path="/login" component={LogInFormContainer} />
@@ -27,6 +30,7 @@ const App = () => {
         <ProtectedRoute path="/your-profile" component={YourProfileContainer} />
         <ProtectedRoute path="/recipes/new" component={CreateRecipeFormContainer} />
         <Route path="/recipes/:recipeId/edit" component={EditRecipeFormContainer} />
+        <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
 
         {/* <ProtectedRoute path="/recipes" component={RecipesIndexContainer} /> */}
 
