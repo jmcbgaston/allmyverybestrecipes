@@ -3,6 +3,7 @@ import RecipePostForm from './recipe_post_form'
 import { createRecipe, deleteRecipe } from '../actions/recipe_actions'
 
 const mSTP = state => {
+    debugger;
     let authorId = state.session.currentUser
     return {
         recipe: {
@@ -14,7 +15,8 @@ const mSTP = state => {
             number_of_servings: 0, 
             authorId: authorId
         }, 
-        formType: "Create Recipe"
+        formType: "Create Recipe", 
+        errors: state.errors.recipeErrors
     }
 }
 

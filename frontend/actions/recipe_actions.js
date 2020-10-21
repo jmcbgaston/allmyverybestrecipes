@@ -4,6 +4,7 @@ export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES"
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE"
 export const REMOVE_RECIPE = "REMOVE_RECIPE"
 export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS"
+export const REMOVE_RECIPE_ERRORS = "REMOVE_RECIPE_ERRORS"
 
 // actions
 
@@ -32,6 +33,13 @@ const receiveRecipeErrors = errors => {
     return {
         type: RECEIVE_RECIPE_ERRORS, 
         errors
+    }
+}
+
+
+export const removeRecipeErrors = () => {
+    return {
+        type: REMOVE_RECIPE_ERRORS
     }
 }
 

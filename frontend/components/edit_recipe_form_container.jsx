@@ -9,13 +9,11 @@ class EditRecipePostForm extends React.Component {
     }
 
     componentDidMount() {
-        // debugger;
-        this.props.fetchRecipe(this.props.recipe.id)
+        this.props.fetchRecipe(this.props.match.params.recipeId)
     }
 
     render() {
-        debugger;
-        const { action, formType, recipe, deleteRecipe, history } = this.props;
+        const { action, formType, recipe, deleteRecipe, history, currUser, errors } = this.props;
     
         if (!recipe) return null;
         return (
@@ -25,16 +23,19 @@ class EditRecipePostForm extends React.Component {
                 recipe={recipe} 
                 deleteRecipe={deleteRecipe}
                 history={history}
+                currUser={currUser}
+                errors={errors}
             />
         );
     }
 }
 
 const mSTP = (state, ownProps) => {
-    // debugger;
     return {
         recipe: state.entities.recipes[ownProps.match.params.recipeId], 
-        formType: "Update Post"
+        formType: "Update Recipe", 
+        currUser: state.session.currentUser, 
+        errors: state.errors.recipeErrors
     }
 }
 

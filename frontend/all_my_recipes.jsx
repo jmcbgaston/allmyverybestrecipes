@@ -21,10 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         display_name: window.currentUser.display_name, 
                         email: window.currentUser.email 
                     } 
-                }, 
-                // recipes: {
-
-                // }
+                }
             }, 
             session: {
                 currentUser: window.currentUser.id
