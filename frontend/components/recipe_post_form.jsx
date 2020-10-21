@@ -59,16 +59,19 @@ class RecipePostForm extends React.Component {
                         </label>
                         <label>Prep time
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.prep_time}
                                 onChange={this.handleChange("prep_time")}/>
                         </label>
                         <label>Cook time
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.cook_time}
                                 onChange={this.handleChange("cook_time")}/>
                         </label>
                         <label>Number of servings
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.number_of_servings}
                                 onChange={this.handleChange("number_of_servings")}/>
                         </label>
@@ -102,16 +105,19 @@ class RecipePostForm extends React.Component {
                         </label>
                         <label>Prep time
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.prep_time}
                                 onChange={this.handleChange("prep_time")}/>
                         </label>
                         <label>Cook time
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.cook_time}
                                 onChange={this.handleChange("cook_time")}/>
                         </label>
                         <label>Number of servings
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.number_of_servings}
                                 onChange={this.handleChange("number_of_servings")}/>
                         </label>
@@ -141,16 +147,19 @@ class RecipePostForm extends React.Component {
                         </label>
                         <label>Prep time
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.prep_time}
                                 onChange={this.handleChange("prep_time")}/>
                         </label>
                         <label>Cook time
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.cook_time}
                                 onChange={this.handleChange("cook_time")}/>
                         </label>
                         <label>Number of servings
                             <input type="number" 
+                                step="0.1"
                                 value={this.state.number_of_servings}
                                 onChange={this.handleChange("number_of_servings")}/>
                         </label>

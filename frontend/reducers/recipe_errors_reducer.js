@@ -7,8 +7,8 @@ const recipeErrorsReducer = (oldState = [], action) => {
     switch (action.type) {
         case RECEIVE_RECIPE_ERRORS: 
             return action.errors
-        case RECEIVE_CURRENT_USER:
-            return []
+        // case RECEIVE_CURRENT_USER:
+        //     return []
         case REMOVE_RECIPE_ERRORS:
             return []
         default:

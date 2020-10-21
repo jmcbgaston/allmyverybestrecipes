@@ -17,7 +17,8 @@
 class Recipe < ApplicationRecord
 
     validates :title, :description, :directions, :prep_time, :cook_time, :number_of_servings, presence: true
-    validates :prep_time, :cook_time, :number_of_servings, numericality: { only_integer: true }
+    validates :prep_time, :cook_time, :number_of_servings, numericality: { greater_than_or_equal_to: 0 }
+    validates :prep_time, :cook_time, :number_of_servings, numericality: true
 
     belongs_to :author,
     foreign_key: :author_id,
