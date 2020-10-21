@@ -5,6 +5,7 @@ import NavBarContainer from './nav_bar_container';
 import SignUpFormContainer from './signup_form_container';
 import LogInFormContainer from './login_form_container';
 import YourProfileContainer from './your_profile_container'
+import CreateRecipeFormContainer from './create_recipe_form_container'
 
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/route_util';
@@ -22,6 +23,12 @@ const App = () => {
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <ProtectedRoute path="/your-profile" component={YourProfileContainer} />
+        <ProtectedRoute path="/recipes/new" component={CreateRecipeFormContainer} />
+
+        {/* <ProtectedRoute path="/recipes" component={RecipesIndexContainer} /> */}
+
+        {/* <ProtectedRoute path="/recipes/recipeId" component={RecipesIndexItemContainer} /> */}
+
         <Redirect to="/" />
       </Switch>
     </div>
