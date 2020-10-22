@@ -36,5 +36,8 @@ class Recipe < ApplicationRecord
 
     has_many :ingredients, 
     through: :recipe_ingredients
+
+    # active storage photos
+    has_one_attached :photo
     
 end
