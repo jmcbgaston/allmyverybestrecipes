@@ -33,6 +33,16 @@ const App = () => {
         <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
         <Redirect to="/" />
       </Switch>
+      <footer>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/jose-maria-canuto-b-gaston-904411115/"><img src="/assets/linkedin.png" alt="LinkedIn Link"/></a>
+        </li>
+        <li>
+          <a href="https://github.com/jmcbgaston"><img src="/assets/github.svg" alt="GitHub Link"/></a>
+        </li>
+      </ul>
+    </footer>
     </div>
   )
 }

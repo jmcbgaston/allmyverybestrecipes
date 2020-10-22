@@ -31,7 +31,6 @@ class RecipePostForm extends React.Component {
     }
 
     render() {
-        // debugger
 
         if (this.props.recipe === undefined) {
             return null

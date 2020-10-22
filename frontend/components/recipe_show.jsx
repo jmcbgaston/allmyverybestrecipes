@@ -27,7 +27,7 @@ class RecipeShow extends React.Component {
                         <li>{this.props.recipe.number_of_servings}</li>
                         <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
                         <button>
-                            <Link to="/">Back to home</Link>
+                            <Link to="/your-profile/recipes">Back to profile</Link>
                         </button>
                    </ul>
                 </div>

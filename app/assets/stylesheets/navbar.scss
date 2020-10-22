@@ -45,11 +45,12 @@
     button {
         font-size: 100%;
         font-family: inherit;
-        padding: 5px;
+        padding: 8px;
         background-color: #feaa25;
-        border-color: #feaa25;
         color: white;
         outline: none;
+        border-radius: 28px;
+        border-style: none;
     }
     
     button:hover {

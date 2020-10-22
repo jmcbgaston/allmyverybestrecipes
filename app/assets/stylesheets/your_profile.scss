@@ -1,13 +1,13 @@
 .yp-top-level {
     // background-color: yellow;
-    margin: 0px 100px;
+    margin: 0% 8%;
     // height must be a %
-    height: 616px;
+    // height: 616px;
 }
 
 .display-name {
-    background-color: green;
-    color: white;
+    // background-color: lightgray;
+    // color: white;
     height: 77px;
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@
 }
 
 .yp-options {
-    background-color: #F2F2F2;
+    // background-color: #F2F2F2;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -45,12 +45,14 @@
         .active-option {
             background-color: #feaa25;
             color:white;
+            border-radius: 28px;
         }
     }
     
     li:hover {
         cursor: pointer;
         background-color: #E6E6E6;
+        border-radius: 28px;
     }
     
 }

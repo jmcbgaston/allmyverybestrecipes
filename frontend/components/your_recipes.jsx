@@ -4,7 +4,6 @@ import RecipeIndexItem from './recipe_index_item';
 
 class YourRecipes extends React.Component {
     constructor(props) {
-        // debugger;
         super(props)
     }
 
@@ -13,25 +12,27 @@ class YourRecipes extends React.Component {
     }
     
     render() {
-
-        // debugger
-
         let recipes = this.props.recipes.map((recipe, idx) => {
-
-            // debugger
             if (this.props.currUser === recipe.author_id) {
                 return (
-                    <RecipeIndexItem
-                        recipe={recipe}
-                        key={idx}
-                    />
+                    <li>
+                        <RecipeIndexItem
+                            recipe={recipe}
+                            key={idx}
+                        />
+                    </li>
                 )
             }
         })
         return(
-            <div>
-                <ul>
-                    <Link to="/recipes/new">Create a recipe</Link>
+            <div className="your-recipes-top-level">
+                <ul className="yr-list">
+                    <li>
+                        <Link className="create-recipe" to="/recipes/new">
+                            <span className="plus">+</span>
+                            Add a Recipe
+                        </Link>
+                    </li>
                     {recipes}
                 </ul>
             </div>

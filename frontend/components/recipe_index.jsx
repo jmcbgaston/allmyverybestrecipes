@@ -13,17 +13,18 @@ class RecipeIndex extends React.Component {
     render() {
         let recipes = this.props.recipes.map((recipe, idx) => {
             return (
-                <RecipeIndexItem
-                    recipe={recipe}
-                    key={idx}
-                    // deletePost={this.props.deletePost}
-                />
+                <li className="r-index-li-home" key={idx}>
+                    <RecipeIndexItem
+                        recipe={recipe}
+                        // deletePost={this.props.deletePost}
+                    />
+                </li>
             )
         })
 
         return (
-            <div>
-                <ul>
+            <div className="recipe-index-top-level">
+                <ul className="recipe-index-list">
                     {recipes}
                 </ul>
             </div>
