@@ -32,7 +32,7 @@ export const createRecipe = (formData) => {
     )
 }
 
-// update recipe
+// update recipe -- may need to be altered
 export const updateRecipe = (recipe) => {
     return (
         $.ajax({

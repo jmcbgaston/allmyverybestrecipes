@@ -16,7 +16,6 @@ class RecipeIndex extends React.Component {
                 <li className="r-index-li-home" key={idx}>
                     <RecipeIndexItem
                         recipe={recipe}
-                        // deletePost={this.props.deletePost}
                     />
                 </li>
             )

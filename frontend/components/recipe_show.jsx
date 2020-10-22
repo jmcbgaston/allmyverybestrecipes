@@ -19,7 +19,7 @@ class RecipeShow extends React.Component {
             return(
                 <div>
                    <ul>
-                       <li>{this.props.recipe.photo}</li>
+                       <img src={this.props.recipe.photoUrl}/>
                        <li>{this.props.recipe.title}</li>
                        <li>{this.props.recipe.description}</li>
                        <li>{this.props.recipe.directions}</li>
@@ -37,6 +37,7 @@ class RecipeShow extends React.Component {
             return (
                 <div>
                     <ul>
+                        <img src={this.props.recipe.photoUrl}/>
                         <li>{this.props.recipe.title}</li>
                         <li>{this.props.recipe.description}</li>
                         <li>{this.props.recipe.directions}</li>

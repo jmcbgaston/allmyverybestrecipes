@@ -36,15 +36,16 @@ class RecipePostForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         
+        // for photo
         const formData = new FormData();
         
-        // for photo
         formData.append('recipe[title]', this.state.title);
         formData.append('recipe[description]', this.state.description);
         formData.append('recipe[directions]', this.state.directions);
         formData.append('recipe[prep_time]', this.state.prep_time);
         formData.append('recipe[cook_time]', this.state.cook_time);
         formData.append('recipe[number_of_servings]', this.state.number_of_servings);
+        formData.append('recipe[authorId]', this.state.authorId);
 
         if (this.state.photoFile) {
             formData.append('recipe[photo]', this.state.photoFile);
@@ -66,6 +67,8 @@ class RecipePostForm extends React.Component {
         if (this.props.recipe === undefined) {
             return null
         }
+
+        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
 
         if ((this.props.formType === "Update Recipe") && (this.props.currUser === this.props.recipe.author_id)) {
             return(
@@ -105,6 +108,13 @@ class RecipePostForm extends React.Component {
                                 value={this.state.number_of_servings}
                                 onChange={this.handleChange("number_of_servings")}/>
                         </label>
+
+                        <label>Photo
+                            <input type="file"
+                                onChange={this.handleFile.bind(this)}/>
+                            {preview}
+                        </label>
+
                         <button type="submit">{this.props.formType}</button>
                         <button type="submit" 
                             onClick={() => dispatch(this.props.deleteRecipe(this.state.id))}>
@@ -151,6 +161,13 @@ class RecipePostForm extends React.Component {
                                 value={this.state.number_of_servings}
                                 onChange={this.handleChange("number_of_servings")}/>
                         </label>
+
+                        <label>Photo
+                            <input type="file"
+                                onChange={this.handleFile.bind(this)}/>
+                            {preview}
+                        </label>
+
                         <button type="submit">{this.props.formType}</button>
                     </form>
                 </div>
@@ -193,6 +210,13 @@ class RecipePostForm extends React.Component {
                                 value={this.state.number_of_servings}
                                 onChange={this.handleChange("number_of_servings")}/>
                         </label>
+                        
+                        <label>Photo
+                            <input type="file"
+                                onChange={this.handleFile.bind(this)}/>
+                            {preview}
+                        </label>
+
                     </form>
                 </div>
             )
