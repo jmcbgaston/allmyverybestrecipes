@@ -83,6 +83,9 @@ export const createRecipe = (recipe) => {
 
     // update recipe
 export const updateRecipe = (recipe) => {
+
+    // debugger;
+
     return (dispatch => {
         return RecipeAPIUtil.updateRecipe(recipe)
             .then(updatedRecipe => {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const RecipeIndexItem = (props) => {
 
-    debugger
+    // debugger
 
     return(
         <div className="r-index-item">

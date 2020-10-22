@@ -34,14 +34,31 @@ export const createRecipe = (formData) => {
 
 // update recipe -- may need to be altered
 export const updateRecipe = (recipe) => {
+
+    // debugger;
+
     return (
         $.ajax({
             method: "PATCH", 
             url: `/api/recipes/${recipe.id}`, 
-            data: { recipe }
+            data: recipe
         })
     )
 }
+// export const updateRecipe = (formData) => {
+
+//     // debugger;
+
+//     return (
+//         $.ajax({
+//             method: "PATCH", 
+//             url: `/api/recipes/${formData.id}`, 
+//             data: formData,
+//             contentType: false,
+//             processData: false
+//         })
+//     )
+// }
 
 // delete recipe
 export const deleteRecipe = (recipeId) => {
