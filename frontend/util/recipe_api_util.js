@@ -20,12 +20,14 @@ export const fetchRecipe = (recipeId) => {
 }
 
 // create recipe
-export const createRecipe = (recipe) => {
+export const createRecipe = (formData) => {
     return (
         $.ajax({
             method: "POST", 
             url: `/api/recipes/`, 
-            data: { recipe }
+            data: formData, 
+            contentType: false,
+            processData: false
         })
     )
 }

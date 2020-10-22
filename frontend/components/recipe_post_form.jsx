@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 class RecipePostForm extends React.Component {
     constructor(props) {
+        debugger
+        
         super(props)
         this.state = this.props.recipe
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,12 +20,41 @@ class RecipePostForm extends React.Component {
         )
     }
 
+    handleFile(e) {
+        const reader = new FileReader();
+        const file = e.currentTarget.files[0];
+        reader.onloadend = () =>
+        this.setState({ photoUrl: reader.result, photoFile: file });
+
+        if (file) {
+        reader.readAsDataURL(file);
+        } else {
+        this.setState({ photoUrl: "", photoFile: null });
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state)
+        
+        const formData = new FormData();
+        
+        // for photo
+        formData.append('recipe[title]', this.state.title);
+        formData.append('recipe[description]', this.state.description);
+        formData.append('recipe[directions]', this.state.directions);
+        formData.append('recipe[prep_time]', this.state.prep_time);
+        formData.append('recipe[cook_time]', this.state.cook_time);
+        formData.append('recipe[number_of_servings]', this.state.number_of_servings);
+
+        if (this.state.photoFile) {
+            formData.append('recipe[photo]', this.state.photoFile);
+        }
+        
+        // for url
+        this.props.action(formData)
             .then(data => this.props.history.push(`/recipes/${data.recipe.id}`))
     }
-    
+
     handleChange(type) {
         return(e) => {
             this.setState({ [type]: e.currentTarget.value })

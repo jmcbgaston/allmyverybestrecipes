@@ -19,15 +19,16 @@ class RecipeShow extends React.Component {
             return(
                 <div>
                    <ul>
-                        <li>{this.props.recipe.title}</li>
-                        <li>{this.props.recipe.description}</li>
-                        <li>{this.props.recipe.directions}</li>
-                        <li>{this.props.recipe.prep_time}</li>
-                        <li>{this.props.recipe.cook_time}</li>
-                        <li>{this.props.recipe.number_of_servings}</li>
-                        <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
-                        <button>
-                            <Link to="/your-profile/recipes">Back to profile</Link>
+                       <li>{this.props.recipe.photo}</li>
+                       <li>{this.props.recipe.title}</li>
+                       <li>{this.props.recipe.description}</li>
+                       <li>{this.props.recipe.directions}</li>
+                       <li>{this.props.recipe.prep_time}</li>
+                       <li>{this.props.recipe.cook_time}</li>
+                       <li>{this.props.recipe.number_of_servings}</li>
+                       <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
+                       <button>
+                           <Link to="/your-profile/recipes">Back to profile</Link>
                         </button>
                    </ul>
                 </div>

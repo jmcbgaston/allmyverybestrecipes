@@ -12,10 +12,16 @@
 #     password: "password"
 # })
 
+require 'open-uri'
+
 User.destroy_all
 
 # demo user
-User.create({ display_name: "demo", email: "demo@login.com", password: "password" })
+demo_user = User.create({ display_name: "demo", email: "demo@login.com", password: "password" })
+
+file = open('https://allmyverybestrecipes-seeds.s3-us-west-1.amazonaws.com/pickle.jpg')
+
+demo_user.photo.attach(io: file, filename: 'pickle.jpg')
 
 # pseudo users
 User.create({ display_name: "Domo Arigato", email: "demo@gmail.com", password: "password" })
@@ -38,3 +44,4 @@ User.create({ display_name: "Goku", email: "demo@gmail.com", password: "password
 User.create({ display_name: "Peter Pan", email: "demo@gmail.com", password: "password" })
 User.create({ display_name: "Joaquin Phoenix", email: "demo@gmail.com", password: "password" })
 User.create({ display_name: "I too am groot", email: "demo@gmail.com", password: "password" })
+

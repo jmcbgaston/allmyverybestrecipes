@@ -12,7 +12,9 @@ const mSTP = state => {
             prep_time: "",
             cook_time: "",
             number_of_servings: "", 
-            authorId: authorId
+            authorId: authorId, 
+            photoFile: null,
+            photoUrl: null
         }, 
         formType: "Create Recipe", 
         errors: state.errors.recipeErrors
