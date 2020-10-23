@@ -6,8 +6,6 @@ export const REMOVE_RECIPE = "REMOVE_RECIPE"
 export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS"
 export const REMOVE_RECIPE_ERRORS = "REMOVE_RECIPE_ERRORS"
 
-// actions
-
 const receiveAllRecipes = recipes => {
     return {
         type: RECEIVE_ALL_RECIPES, 
@@ -43,9 +41,6 @@ export const removeRecipeErrors = () => {
     }
 }
 
-// thunk actions
-
-    // fetch all recipes
 export const fetchRecipes = () => {
     return (dispatch => {
         return RecipeAPIUtil.fetchRecipes()
@@ -57,7 +52,6 @@ export const fetchRecipes = () => {
     })
 }
 
-    // fetch recipe
 export const fetchRecipe = (recipeId) => {
     return (dispatch => {
         return RecipeAPIUtil.fetchRecipe(recipeId)
@@ -69,7 +63,6 @@ export const fetchRecipe = (recipeId) => {
     })
 }
 
-    // create recipe
 export const createRecipe = (recipe) => {
     return (dispatch => {
         return RecipeAPIUtil.createRecipe(recipe)
@@ -81,11 +74,7 @@ export const createRecipe = (recipe) => {
     })
 }
 
-    // update recipe
 export const updateRecipe = (recipe) => {
-
-    // debugger;
-
     return (dispatch => {
         return RecipeAPIUtil.updateRecipe(recipe)
             .then(updatedRecipe => {
@@ -96,7 +85,6 @@ export const updateRecipe = (recipe) => {
     })
 }
 
-    //delete recipe
 export const deleteRecipe = (recipeId) => {
     return (dispatch => {
         return RecipeAPIUtil.deleteRecipe(recipeId)

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 class RecipePostForm extends React.Component {
     constructor(props) {
-        // debugger
-        
         super(props)
         this.state = this.props.recipe
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -47,14 +45,10 @@ class RecipePostForm extends React.Component {
         formData.append('recipe[number_of_servings]', this.state.number_of_servings);
         formData.append('recipe[authorId]', this.state.authorId);
 
-        // debugger;
-
         if (this.state.photoFile) {
             formData.append('recipe[photo]', this.state.photoFile);
         }
         
-        // debugger;
-
         // for url
         this.props.action(formData)
             .then(data => this.props.history.push(`/recipes/${data.recipe.id}`))

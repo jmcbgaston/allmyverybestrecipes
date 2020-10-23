@@ -1,0 +1,40 @@
+.show-top-level {
+    display: flex;
+    // flex-direction: column;
+
+    ul {
+        margin: 3px 8% 20% 0%;
+        font-family: "Source Sans Pro", serif;
+
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        li {
+            padding: 20px;
+        }
+    }
+
+
+    button {
+            font-size: 100%;
+            font-family: inherit;
+            padding: 8px;
+            background-color: #feaa25;
+            outline: none;
+            border-radius: 28px;
+            border-style: none;
+            margin: 2% 5%;
+
+            a {
+                color: white
+            }
+    }
+
+    img {
+        width: 300px;
+        margin: 20px 2% 57% 8%
+    }
+}

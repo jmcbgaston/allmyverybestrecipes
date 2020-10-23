@@ -15,19 +15,17 @@ class RecipeShow extends React.Component {
             return null
         }
 
-        debugger
-
         if (this.props.currUser === this.props.recipe.author_id) {
             return(
-                <div>
-                   <ul>
+                <div className="show-top-level">
                        <img src={this.props.recipe.photoUrl}/>
-                       <li>{this.props.recipe.title}</li>
+                   <ul>
+                       <li className="title">{this.props.recipe.title}</li>
                        <li>{this.props.recipe.description}</li>
                        <li>{this.props.recipe.directions}</li>
-                       <li>{this.props.recipe.prep_time}</li>
-                       <li>{this.props.recipe.cook_time}</li>
-                       <li>{this.props.recipe.number_of_servings}</li>
+                       <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
+                       <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                       <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
                        <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
                        <button>
                            <Link to="/your-profile/recipes">Back to profile</Link>
@@ -37,15 +35,15 @@ class RecipeShow extends React.Component {
             )
         } else {
             return (
-                <div>
-                    <ul>
+                <div className="show-top-level">
                         <img src={this.props.recipe.photoUrl}/>
-                        <li>{this.props.recipe.title}</li>
+                    <ul>
+                        <li className="title">{this.props.recipe.title}</li>
                         <li>{this.props.recipe.description}</li>
                         <li>{this.props.recipe.directions}</li>
-                        <li>{this.props.recipe.prep_time}</li>
-                        <li>{this.props.recipe.cook_time}</li>
-                        <li>{this.props.recipe.number_of_servings}</li>
+                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
+                       <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                       <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
                         <button>
                             <Link to="/">Back to home</Link>
                         </button>
