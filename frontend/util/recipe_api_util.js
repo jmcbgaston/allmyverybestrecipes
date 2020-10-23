@@ -27,13 +27,16 @@ export const createRecipe = (formData) => {
         })
     )
 }
-
+ 
 export const updateRecipe = (recipe) => {
+    debugger;
     return (
         $.ajax({
             method: "PATCH", 
-            url: `/api/recipes/${recipe.id}`, 
-            data: recipe
+            url: `/api/recipes/${recipe.get("recipe[id]")}`, 
+            data: recipe,
+            contentType: false,
+            processData: false
         })
     )
 }

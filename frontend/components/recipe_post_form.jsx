@@ -36,7 +36,10 @@ class RecipePostForm extends React.Component {
         
         // for photo
         const formData = new FormData();
-        
+
+        if (this.props.formType === "Update Recipe") {
+            formData.append('recipe[id]', this.state.id);
+        }
         formData.append('recipe[title]', this.state.title);
         formData.append('recipe[description]', this.state.description);
         formData.append('recipe[directions]', this.state.directions);
@@ -49,8 +52,6 @@ class RecipePostForm extends React.Component {
             formData.append('recipe[photo]', this.state.photoFile);
         }
         
-        debugger;
-
         // for url
         this.props.action(formData)
             .then(data => this.props.history.push(`/recipes/${data.recipe.id}`))
