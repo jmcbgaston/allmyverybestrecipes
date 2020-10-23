@@ -15,6 +15,8 @@ class RecipeShow extends React.Component {
             return null
         }
 
+        debugger
+
         if (this.props.currUser === this.props.recipe.author_id) {
             return(
                 <div>

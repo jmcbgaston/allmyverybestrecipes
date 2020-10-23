@@ -14,7 +14,7 @@ const NavBar = props => {
                 <ul className="yp-dropdown-content">
                     <p>ACCOUNT</p>
                     <li>
-                        <Link to="/your-profile">Your Profile</Link>
+                        <Link to="/your-profile/recipes">Your Profile</Link>
                     </li>
                     <li>
                         <Link to="/" onClick={props.logout}>Log Out</Link>

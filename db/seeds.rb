@@ -14,15 +14,15 @@
 
 require 'open-uri'
 
-User.destroy_all
+User.delete_all
+User.reset_pk_sequence
+Recipe.delete_all
+Recipe.reset_pk_sequence
 
 demo_user = User.create({ 
     display_name: "demo", 
     email: "demo@login.com", 
     password: "password" })
-file = open('https://allmyverybestrecipes-seeds.s3-us-west-1.amazonaws.com/pickle.jpg')
-demo_user.photo.attach(io: file, filename: 'pickle.jpg')
-
 domo_arigato = User.create({ 
     display_name: "Domo Arigato", 
     email: "domo@gmail.com", 

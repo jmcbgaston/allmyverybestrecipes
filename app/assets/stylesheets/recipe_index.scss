@@ -1,6 +1,6 @@
 .recipe-index-top-level {
-    margin: 13px 8%;
-    background-color: lightgoldenrodyellow;
+    margin: 13px 8% 0px;
+    // background-color: lightgoldenrodyellow;
 }
 
 .recipe-index-list {
@@ -8,14 +8,15 @@
     flex-wrap: wrap;
     font-family: 'Source Sans Pro', arial;
     font-size: 18px;
-    background-color: aquamarine;
+    padding-bottom: 73px;
+    // background-color: aquamarine;
 
     .r-index-li-home {
         margin-right: 5%;
         width: 20%;
 
         div {
-            background-color: lightcoral;
+            // background-color: lightcoral;
             display: flex;
             flex-wrap: wrap;
             margin: 10%;
@@ -26,18 +27,15 @@
                 width: 100%;
                 display: flex;
                 flex-direction: column;
+                box-shadow: 2px 7px 8px 0px rgba(0, 0, 0, 0.2);
     
-                .r-index-item-img-url {
-                    height: 70%;
-                    background-color: lightgray;
-                    margin: 5%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                img {
+                    object-fit: cover;
+                    height: 304px;
                 }
     
                 .r-index-item-info {
-    
+                    margin: 5%;
                 }
             }
         }

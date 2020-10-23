@@ -76,48 +76,56 @@ class RecipePostForm extends React.Component {
 
         if ((this.props.formType === "Update Recipe") && (this.props.currUser === this.props.recipe.author_id)) {
             return(
-                <div>
+                <div className="top-level-post-form">
                     {this.renderErrors()}
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Recipe title
-                            <input type="text" 
-                                value={this.state.title}
-                                onChange={this.handleChange("title")}/>
-                        </label>
-                        <label>Description
-                            <input type="text" 
-                                value={this.state.description}
-                                onChange={this.handleChange("description")}/>
-                        </label>
-                        <label>Directions
-                            <input type="text" 
-                                value={this.state.directions}
-                                onChange={this.handleChange("directions")}/>
-                        </label>
-                        <label>Prep time
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.prep_time}
-                                onChange={this.handleChange("prep_time")}/>
-                        </label>
-                        <label>Cook time
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.cook_time}
-                                onChange={this.handleChange("cook_time")}/>
-                        </label>
-                        <label>Number of servings
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.number_of_servings}
-                                onChange={this.handleChange("number_of_servings")}/>
-                        </label>
+                    <form className="post-form"
+                        onSubmit={this.handleSubmit}>
 
-                        <label>Photo
-                            <input type="file"
-                                onChange={this.handleFile.bind(this)}/>
-                            {preview}
-                        </label>
+                        <ul className="post-form-main">
+                            <label>Recipe title</label>
+                                <input type="text" 
+                                    value={this.state.title}
+                                    onChange={this.handleChange("title")}/>
+                            <label>Description</label>
+                                <textarea type="text" 
+                                    value={this.state.description}
+                                    onChange={this.handleChange("description")}/>
+                            <label>Directions</label>
+                                <textarea type="text" 
+                                    value={this.state.directions}
+                                    onChange={this.handleChange("directions")}/>
+                        </ul>
+
+                        <ul className="post-form-bits">
+                            <li>
+                                <label>Prep time</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.prep_time}
+                                        onChange={this.handleChange("prep_time")}/>
+                            </li>
+                            <li>
+                                <label>Cook time</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.cook_time}
+                                        onChange={this.handleChange("cook_time")}/>
+                            </li>
+                            <li>
+                                <label>Number of servings</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.number_of_servings}
+                                        onChange={this.handleChange("number_of_servings")}/>
+                            </li>
+                        </ul>
+
+                        <ul className="post-form-photo">
+                            <label>Photo</label>
+                                <input type="file"
+                                    onChange={this.handleFile.bind(this)}/>
+                                {preview}
+                        </ul>
 
                         <button type="submit">{this.props.formType}</button>
                         <button type="submit" 
@@ -129,48 +137,56 @@ class RecipePostForm extends React.Component {
             )
         } else if (this.props.formType === "Create Recipe") {
             return(
-                <div>
+                <div className="top-level-post-form">
                     {this.renderErrors()}
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Recipe title
-                            <input type="text" 
-                                value={this.state.title}
-                                onChange={this.handleChange("title")}/>
-                        </label>
-                        <label>Description
-                            <input type="text" 
-                                value={this.state.description}
-                                onChange={this.handleChange("description")}/>
-                        </label>
-                        <label>Directions
-                            <input type="text" 
-                                value={this.state.directions}
-                                onChange={this.handleChange("directions")}/>
-                        </label>
-                        <label>Prep time
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.prep_time}
-                                onChange={this.handleChange("prep_time")}/>
-                        </label>
-                        <label>Cook time
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.cook_time}
-                                onChange={this.handleChange("cook_time")}/>
-                        </label>
-                        <label>Number of servings
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.number_of_servings}
-                                onChange={this.handleChange("number_of_servings")}/>
-                        </label>
+                    <form className="post-form"
+                        onSubmit={this.handleSubmit}>
 
-                        <label>Photo
-                            <input type="file"
-                                onChange={this.handleFile.bind(this)}/>
-                            {preview}
-                        </label>
+                        <ul className="post-form-main">
+                            <label>Recipe title</label>
+                                <input type="text" 
+                                    value={this.state.title}
+                                    onChange={this.handleChange("title")}/>
+                            <label>Description</label>
+                                <textarea type="text" 
+                                    value={this.state.description}
+                                    onChange={this.handleChange("description")}/>
+                            <label>Directions</label>
+                                <textarea type="text" 
+                                    value={this.state.directions}
+                                    onChange={this.handleChange("directions")}/>
+                        </ul>
+
+                        <ul className="post-form-bits">
+                            <li>
+                                <label>Prep time</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.prep_time}
+                                        onChange={this.handleChange("prep_time")}/>
+                            </li>
+                            <li>
+                                <label>Cook time</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.cook_time}
+                                        onChange={this.handleChange("cook_time")}/>
+                            </li>
+                            <li>
+                                <label>Number of servings</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.number_of_servings}
+                                        onChange={this.handleChange("number_of_servings")}/>
+                            </li>
+                        </ul>
+
+                        <ul className="post-form-photo">
+                            <label>Photo</label>
+                                <input type="file"
+                                    onChange={this.handleFile.bind(this)}/>
+                                {preview}
+                        </ul>
 
                         <button type="submit">{this.props.formType}</button>
                     </form>
@@ -178,48 +194,56 @@ class RecipePostForm extends React.Component {
             )
         } else {
             return(
-                <div>
+                <div className="top-level-post-form">
                     {this.renderErrors()}
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Recipe title
-                            <input type="text" 
-                                value={this.state.title}
-                                onChange={this.handleChange("title")}/>
-                        </label>
-                        <label>Description
-                            <input type="text" 
-                                value={this.state.description}
-                                onChange={this.handleChange("description")}/>
-                        </label>
-                        <label>Directions
-                            <input type="text" 
-                                value={this.state.directions}
-                                onChange={this.handleChange("directions")}/>
-                        </label>
-                        <label>Prep time
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.prep_time}
-                                onChange={this.handleChange("prep_time")}/>
-                        </label>
-                        <label>Cook time
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.cook_time}
-                                onChange={this.handleChange("cook_time")}/>
-                        </label>
-                        <label>Number of servings
-                            <input type="number" 
-                                step="0.1"
-                                value={this.state.number_of_servings}
-                                onChange={this.handleChange("number_of_servings")}/>
-                        </label>
-                        
-                        <label>Photo
-                            <input type="file"
-                                onChange={this.handleFile.bind(this)}/>
-                            {preview}
-                        </label>
+                    <form className="post-form"
+                        onSubmit={this.handleSubmit}>
+
+                        <ul className="post-form-main">
+                            <label>Recipe title</label>
+                                <input type="text" 
+                                    value={this.state.title}
+                                    onChange={this.handleChange("title")}/>
+                            <label>Description</label>
+                                <textarea type="text" 
+                                    value={this.state.description}
+                                    onChange={this.handleChange("description")}/>
+                            <label>Directions</label>
+                                <textarea type="text" 
+                                    value={this.state.directions}
+                                    onChange={this.handleChange("directions")}/>
+                        </ul>
+                     
+                        <ul className="post-form-bits">
+                            <li>
+                                <label>Prep time</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.prep_time}
+                                        onChange={this.handleChange("prep_time")}/>
+                            </li>
+                            <li>
+                                <label>Cook time</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.cook_time}
+                                        onChange={this.handleChange("cook_time")}/>
+                            </li>
+                            <li>
+                                <label>Number of servings</label>
+                                    <input type="number" 
+                                        step="0.1"
+                                        value={this.state.number_of_servings}
+                                        onChange={this.handleChange("number_of_servings")}/>
+                            </li>
+                        </ul>
+
+                        <ul className="post-form-photo">
+                            <label>Photo</label>
+                                <input type="file"
+                                    onChange={this.handleFile.bind(this)}/>
+                                {preview}
+                        </ul>
 
                     </form>
                 </div>
