@@ -24,7 +24,7 @@ AllMyVeryBestRecipes is a clone of [allrecipes.com](https://www.allrecipes.com/)
 ![alt text](https://github.com/jmcbgaston/allmyverybestrecipes/blob/main/app/assets/images/demo.png "demo")
 
 - On successful login, you should see: 
-![alt text](https://github.com/jmcbgaston/allmyverybestrecipes/blob/main/app/assets/images/logged-in.png "logged-in")
+![alt text](https://github.com/jmcbgaston/allmyverybestrecipes/blob/main/app/assets/images/logged_in.png "logged-in")
 
 - New users can sign-up, 
 ![alt text](https://github.com/jmcbgaston/allmyverybestrecipes/blob/main/app/assets/images/signup.png "signup")
