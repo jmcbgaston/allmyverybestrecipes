@@ -5,14 +5,26 @@
 }
 
 .post-form {
-    // background-color: lightblue;
     padding: 10px;
     font-family: 'Source Sans Pro', serif;
     display: flex;
     flex-direction: column;
-
+    
     button {
-        width: 110px
+        width: 110px;
+        font-size: 100%;
+        font-family: inherit;
+        padding: 8px;
+        background-color: #feaa25;
+        outline: none;
+        border-radius: 28px;
+        border-style: none;
+        color: white;
+        margin: 20px 0% 0% 0%;
+
+        a {
+            color: white
+        }
     }
 }
 
@@ -53,6 +65,12 @@
 
         input {
             width: 100px;
+                
+        }
+        
+        ::placeholder {
+            font-style: italic;
+            color: lightgray;
         }
     }
 }
