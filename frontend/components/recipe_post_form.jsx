@@ -49,6 +49,8 @@ class RecipePostForm extends React.Component {
             formData.append('recipe[photo]', this.state.photoFile);
         }
         
+        debugger;
+
         // for url
         this.props.action(formData)
             .then(data => this.props.history.push(`/recipes/${data.recipe.id}`))
