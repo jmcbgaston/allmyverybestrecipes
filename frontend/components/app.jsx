@@ -10,7 +10,6 @@ import CreateRecipeFormContainer from './create_recipe_form_container'
 import EditRecipeFormContainer from './edit_recipe_form_container' 
 import RecipeShowContainer from './recipe_show_container' 
 
-
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/route_util';
 

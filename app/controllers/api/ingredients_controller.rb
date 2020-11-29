@@ -1,7 +1,10 @@
 class Api::IngredientsController < ApplicationController
 
     def create
-        @ingredient = Ingredient.create(ingredient_params)
+        @ingredient = Ingredient.new(ingredient_params)
+        if @ingredient.save
+            render "api/ingredients/show"
+        end
     end
 
     #just for me
@@ -11,7 +14,8 @@ class Api::IngredientsController < ApplicationController
     end
 
     def ingredient_params
-        params.require(:ingredient).permit(:name, :quantity_type)
+        # params.require(:ingredient).permit(:amount, :name, :quantity_type)
+        params.permit(:amount, :name, :quantity_type)
     end
 
 end

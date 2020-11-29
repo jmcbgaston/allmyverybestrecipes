@@ -52,6 +52,10 @@ class User < ApplicationRecord
       foreign_key: :favorited_id, 
       class_name: "Recipe"
 
+      has_many :reviews, 
+      foreign_key: :reviewer_id, 
+      class_name: "Review"
+
       has_one_attached :photo
 
 end

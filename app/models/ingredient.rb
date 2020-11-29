@@ -7,11 +7,12 @@
 #  quantity_type :string           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  amount        :string
 #
 class Ingredient < ApplicationRecord
 
-    validates :name, :quantity_type, presence: true 
-    validates :name, uniqueness: true 
+    validates :amount, :name, :quantity_type, presence: true 
+    # validates :name, uniqueness: true 
 
     # association for a through
     has_many :recipe_ingredients, 

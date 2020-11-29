@@ -4,10 +4,36 @@ import { Link } from 'react-router-dom'
 class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchRecipe(this.props.match.params.recipeId)
+        this.props.fetchReviews()
+    }
+    
+    // componentDidUpdate() {
+    //     this.props.fetchReviews()
+    // }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        if (!this.props.currUser) {
+            alert("You must be logged in to leave a review")
+            document.getElementsByClassName('show-review-body')[0].value = ""
+            document.getElementsByClassName('show-review-rating')[0].selectedIndex = 0
+            return
+        }
+
+        let vBody = document.getElementsByClassName('show-review-body')[0].value
+        document.getElementsByClassName('show-review-body')[0].value = ""
+        let vRating = document.getElementsByClassName('show-review-rating')[0].selectedIndex
+        document.getElementsByClassName('show-review-rating')[0].selectedIndex = 0
+
+        let reviewPojo = ({ body: vBody, rating: vRating, recipe_id: this.props.recipe.id, reviewer_id: this.props.currUser })
+
+        this.props.createReview(reviewPojo)
     }
     
     render() {
@@ -15,22 +41,88 @@ class RecipeShow extends React.Component {
             return null
         }
 
+        let directions = this.props.recipe.directions.split(' , ').map((dir, idx) => {
+            return(
+                <li key={idx}>
+                    {dir}
+                </li>
+            ) 
+        })
+
+        let ingredients = this.props.recipe.ingredients.split(' , ').map((ing, idx) => {
+            return(
+                <li key={idx}>
+                    {ing}
+                </li>
+            ) 
+        })
+
+        let reviews = []
+
+        if (this.props.reviews && this.props.reviews.length > 0) {
+            reviews = this.props.reviews.map((review, idx) => {
+                return(
+                    <ul>
+                        <label>{"★".repeat(review.rating)}</label>
+                        <li key={idx}>{review.body}</li>
+                    </ul>
+                ) 
+            })
+        }
+
         if (this.props.currUser === this.props.recipe.author_id) {
             return(
                 <div className="show-top-level">
                        <img src={this.props.recipe.photoUrl}/>
-                   <ul>
-                       <li className="title">{this.props.recipe.title}</li>
-                       <li>{this.props.recipe.description}</li>
-                       <li>{this.props.recipe.directions}</li>
-                       <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
-                       <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
-                       <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
-                       <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
-                       <button>
-                           <Link to="/your-profile/recipes">Back to profile</Link>
+                    <ul>
+                        <ul>
+                            <li className="title">{this.props.recipe.title}</li>
+                        </ul>
+                        <ul>
+                            <li>{this.props.recipe.description}</li>
+                        </ul>
+                        <ul className="show-directions">Directions: 
+                            {directions}
+                        </ul>
+                        <ul className="show-ingredients">Ingredients: 
+                            {ingredients}
+                        </ul>
+                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
+                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
+                        <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
+                        <button>
+                            <Link to="/your-profile/recipes">Back to profile</Link>
                         </button>
-                   </ul>
+                    </ul>
+
+                    <form 
+                        className="review-post-form" 
+                        onSubmit={this.handleSubmit}>
+
+                        <label>Reviews:</label>
+                        {reviews}
+                        <br/>
+
+                        <label>Rating:</label>
+                        <br/>
+
+                        <select className="show-review-rating">
+                            <option value="0">---</option>
+                            <option value="1">★</option>
+                            <option value="2">★★</option>
+                            <option value="3">★★★</option>
+                            <option value="4">★★★★</option>
+                            <option value="5">★★★★★</option>
+                        </select>
+                        <br/>
+
+                        <textarea 
+                            type="text" 
+                            className="show-review-body" />
+                        <button type="submit">Submit Review</button>
+                    </form>
+
                 </div>
             )
         } else {
@@ -38,16 +130,52 @@ class RecipeShow extends React.Component {
                 <div className="show-top-level">
                         <img src={this.props.recipe.photoUrl}/>
                     <ul>
-                        <li className="title">{this.props.recipe.title}</li>
-                        <li>{this.props.recipe.description}</li>
-                        <li>{this.props.recipe.directions}</li>
+                        <ul>
+                            <li className="title">{this.props.recipe.title}</li>
+                        </ul>
+                        <ul>
+                            <li>{this.props.recipe.description}</li>
+                        </ul>
+                        <ul className="show-directions">Directions: 
+                            {directions}
+                        </ul>
+                        <ul className="show-ingredients">Ingredients: 
+                            {ingredients}
+                        </ul>
                         <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
-                       <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
-                       <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
+                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
                         <button>
                             <Link to="/">Back to home</Link>
                         </button>
                     </ul>
+
+                    <form 
+                        className="review-post-form" 
+                        onSubmit={this.handleSubmit}>
+
+                        <label>Reviews:</label>
+                        {reviews}
+                        <br/>
+
+                        <label>Rating:</label>
+                        <br/>
+
+                        <select className="show-review-rating">
+                            <option value="0">---</option>
+                            <option value="1">★</option>
+                            <option value="2">★★</option>
+                            <option value="3">★★★</option>
+                            <option value="4">★★★★</option>
+                            <option value="5">★★★★★</option>
+                        </select>
+                        <br/>
+
+                        <textarea 
+                            type="text" 
+                            className="show-review-body" />
+                        <button type="submit">Submit Review</button>
+                    </form>
                 </div>
             )
         }

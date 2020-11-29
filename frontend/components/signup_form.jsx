@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
                             />
                         </li>
                         <li>
-                            <input type="text"
+                            <input type="email"
                                 value={this.state.email}
                                 placeholder="Email"
                                 onChange={this.handleChange("email")}

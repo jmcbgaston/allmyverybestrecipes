@@ -1,0 +1,1 @@
+json.extract! @review, :id, :body, :rating, :recipe_id, :reviewer_id
