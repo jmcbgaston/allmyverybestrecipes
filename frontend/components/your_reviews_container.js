@@ -3,8 +3,6 @@ import YourReviews from './your_reviews'
 import { fetchReviews } from '../actions/review_actions'
 
 const mSTP = state => {
-    debugger
-
     let allReviews = Object.values(state.entities.reviews)
     let currUser = state.session.currentUser
     let myReviews = []
@@ -16,8 +14,6 @@ const mSTP = state => {
             myReviews.push(review)
         }
     })
-
-    debugger
 
     return {
         reviews: myReviews,

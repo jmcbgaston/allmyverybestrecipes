@@ -15,7 +15,7 @@ class YourRecipes extends React.Component {
         let recipes = this.props.recipes.map((recipe, idx) => {
             if (this.props.currUser === recipe.author_id) {
                 return (
-                    <li>
+                    <li key={idx}>
                         <RecipeIndexItem
                             recipe={recipe}
                             key={idx}
