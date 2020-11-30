@@ -55,6 +55,10 @@ class User < ApplicationRecord
       has_many :reviews, 
       foreign_key: :reviewer_id, 
       class_name: "Review"
+      
+      has_one :shopping_list, 
+      foreign_key: :owner_id, 
+      class_name: "ShoppingList"
 
       has_one_attached :photo
 

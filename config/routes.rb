@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :recipes, only: [ :index, :show, :create, :update, :destroy ]
     # resources :ingredients, only: [ :create, :destroy ]
     resources :reviews, only: [ :index, :create, :update, :destroy ]
+    resources :shopping_lists, only: [ :show, :update ]
   end
 
   root to: "static_pages#root"

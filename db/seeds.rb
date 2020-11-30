@@ -16,29 +16,47 @@ require 'open-uri'
 
 User.delete_all
 User.reset_pk_sequence
+ShoppingList.delete_all
+ShoppingList.reset_pk_sequence
 Recipe.delete_all
 Recipe.reset_pk_sequence
+Review.delete_all
+Review.reset_pk_sequence
 
 demo_user = User.create({ 
     display_name: "demo", 
     email: "demo@login.com", 
     password: "password" })
+shopping_list1 = ShoppingList.create({
+    owner_id: demo_user.id })
+
 domo_arigato = User.create({ 
     display_name: "Domo Arigato", 
     email: "domo@gmail.com", 
     password: "password" })
+shopping_list2 = ShoppingList.create({
+    owner_id: domo_arigato.id })
+    
 clark_kent = User.create({ 
     display_name: "Clark Kent", 
     email: "clark_kent@gmail.com", 
     password: "password" })
+shopping_list3 = ShoppingList.create({
+    owner_id: clark_kent.id })
+
 the_bees_knees = User.create({ 
     display_name: "The Bees Knees", 
     email: "beezus@gmail.com", 
     password: "password" })
+shopping_list4 = ShoppingList.create({
+    owner_id: the_bees_knees.id })
+
 brandon = User.create({ 
     display_name: "Brandon", 
     email: "brandon@gmail.com", 
     password: "password" })
+shopping_list5 = ShoppingList.create({
+    owner_id: brandon.id })
 
 roasted_pork_chop_with_vegetables = Recipe.create({
     title: "Roasted Pork Chop with Vegetables",
