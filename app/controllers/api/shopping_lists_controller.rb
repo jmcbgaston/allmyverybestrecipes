@@ -8,7 +8,6 @@ class Api::ShoppingListsController < ApplicationController
     def update
         @shopping_list = ShoppingList.find_by(id: params[:id])
 
-        # debugger
 
         if @shopping_list && @shopping_list.update({items: params[:items]})
             render "api/shopping_lists/show"
@@ -16,9 +15,5 @@ class Api::ShoppingListsController < ApplicationController
             render json: @shopping_list.errors.full_messages, status: 422
         end 
     end
-
-    # def shopping_list_params
-    #     params.require(:shopping_list).permit(:items)
-    # end
-
+    
 end

@@ -15,7 +15,7 @@ import { ProtectedRoute } from '../util/route_util';
 
 const App = () => {
   return (
-    <div>
+    <div className="content-container">
       <header className="header-bar">
         <Link to="/">
           <img className="logo" src="/assets/allrecipes-logo.png" alt="logo"/>

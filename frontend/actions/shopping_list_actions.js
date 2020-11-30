@@ -6,8 +6,6 @@ export const RECEIVE_LIST_ERRORS = "RECEIVE_LIST_ERRORS"
 export const REMOVE_LIST_ERRORS = "REMOVE_LIST_ERRORS"
 
 const receiveList = list => {
-    debugger
-    
     return {
         type: RECEIVE_LIST, 
         list
@@ -45,19 +43,12 @@ export const fetchShoppingList = (listId) => {
 }
 
 export const updateShoppingList = (list) => {
-    debugger
-    
     return (dispatch => {
         return ListAPIUtil.updateShoppingList(list)
             .then(updatedList => {
-                debugger
-
                 if (updatedList.items === null) {
                     updatedList.items = []
                 }
-
-                debugger
-                
                 return dispatch(receiveList(updatedList))
             }, error => {
                 return dispatch(receiveListErrors(error.responseJSON))

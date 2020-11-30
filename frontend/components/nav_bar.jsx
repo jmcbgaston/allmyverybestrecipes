@@ -6,7 +6,12 @@ const NavBar = props => {
         <nav className="nav-container">
             <Link className="signup" to="/signup"><i>Join Now</i></Link>
             <Link className="login" to="/login"><i>Login</i></Link>
-            <button type="submit" className="demo" onClick={() => props.login(props.demoUser)}><i>Demo Login</i></button>
+            <button 
+                type="submit" 
+                className="demo" 
+                onClick={() => props.login(props.demoUser)}>
+                    <i>Demo Login</i>
+            </button>
         </nav>
     ) : (
         <nav className="logged-in-nav-container">
@@ -22,6 +27,9 @@ const NavBar = props => {
                     <p>MORE</p>
                     <li>
                         <Link to="/your-profile/shopping-list">Shopping List</Link>
+                    </li>
+                    <li>
+                        <Link to="/your-profile/reviews">Your Reviews</Link>
                     </li>
                 </ul>
             </button>

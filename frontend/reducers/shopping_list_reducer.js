@@ -5,8 +5,6 @@ const shoppingListReducer = (oldState = {}, action) => {
  
     switch (action.type) {
         case RECEIVE_LIST:
-            debugger
-            
             return action.list
         default:
             return oldState;

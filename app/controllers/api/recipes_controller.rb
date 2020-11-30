@@ -20,7 +20,6 @@ class Api::RecipesController < ApplicationController
         end
     end
 
-    # untested 
     def update
         @recipe = Recipe.find_by(id: params[:id])
         if @recipe && @recipe.update(recipe_params)

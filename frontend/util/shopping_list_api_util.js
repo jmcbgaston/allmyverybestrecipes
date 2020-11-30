@@ -1,6 +1,4 @@
 export const fetchShoppingList = (listId) => {
-    debugger
-    
     return (
         $.ajax({
             method: "GET", 
@@ -10,8 +8,6 @@ export const fetchShoppingList = (listId) => {
 }
 
 export const updateShoppingList = (list) => {
-    debugger
-    
     return (
         $.ajax({
             method: "PATCH", 

@@ -9,8 +9,6 @@ const mSTP = state => {
 
     allReviews.forEach((review) => {
         if (review.reviewer_id === currUser) {
-            debugger
-
             myReviews.push(review)
         }
     })

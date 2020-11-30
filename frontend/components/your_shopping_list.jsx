@@ -15,10 +15,7 @@ class YourShoppingList extends React.Component {
 
         let tempList = this.props.shoppingList
         let cloneList = { ...tempList }
-        debugger
-
-        let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(1))
-
+        let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(2))
         cloneList.items = newList
 
         this.props.updateShoppingList(cloneList)
@@ -32,26 +29,25 @@ class YourShoppingList extends React.Component {
 
         let list = this.props.shoppingList.items.map((ele, idx) => {
             return(
-                <li key={idx}>
-                    <button onClick={this.removeFromList}>-</button>
-                    {ele}
+                <li key={idx} value={ele}>
+                    <button 
+                        id="toggle-negative"
+                        onClick={this.removeFromList}>-</button>{ele}
                 </li>
             )
         })
 
         if (list.length === 0) {
             return(
-                <ul>Shopping List
+                <ul className="empty-shopping-list">
                     <li>Nothing on the shopping list yet!</li>
                 </ul>
             )
         } else {
             return(
-                <div>
-                    <ul>Shopping List
-                        {list}
-                    </ul>
-                </div>
+                <ul className="shopping-list-ul">
+                    {list}
+                </ul>
             )
         }
     }

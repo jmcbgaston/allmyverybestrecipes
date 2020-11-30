@@ -11,29 +11,34 @@ class RecipeShow extends React.Component {
     }
 
     componentDidMount() {
+        // debugger
+
         this.props.fetchRecipe(this.props.match.params.recipeId)
         this.props.fetchReviews()
-        this.props.fetchShoppingList(this.props.currUser)
+        if (this.props.currUser) {
+            this.props.fetchShoppingList(this.props.currUser)
+        }
     }
 
-    // componentWillUnmount() {
+    // componentDidUpdate() {
     //     debugger
+        
+    //     if (this.props.currUser && !this.props.shoppingList.items) {
+    //         debugger
 
+    //         this.props.fetchShoppingList(this.props.currUser)
+    //     }
+    // }
+
+    // componentWillUnmount() {
     //     let tempList = this.props.shoppingList
     //     let cloneList = { ...tempList }
-    //     debugger
-
     //     let newList = cloneList.items.concat(this.list)
     //     cloneList.items = newList
-
-    //     debugger
-
     //     this.props.updateShoppingList(cloneList)
     // }
     
     handleToggle(e) {
-        debugger
-
         e.preventDefault()
 
         let ele = e.currentTarget
@@ -42,7 +47,6 @@ class RecipeShow extends React.Component {
         let cloneList = { ...tempList }
 
         if (ele.innerText === "+") {
-            debugger
             // if (!this.props.shoppingList.items.includes(item)) {
             //     this.list.push(item)
             // }
@@ -54,7 +58,6 @@ class RecipeShow extends React.Component {
             cloneList.items = newList
             this.props.updateShoppingList(cloneList)
         } else {
-            debugger
             // let filtered = this.list.filter(ele => ele !== item)
             // this.list = filtered
             ele.innerText = "+"
@@ -92,26 +95,47 @@ class RecipeShow extends React.Component {
             return null
         }
 
+        // if (this.props.currUser && this.props.shoppingList.items === undefined) {
+        //     debugger
+
+        //     return null
+        // }
+
         let directions = this.props.recipe.directions.split(' , ').map((dir, idx) => {
             return(
-                <li key={idx}>
+                <li 
+                    className="show-direction-item"
+                    key={idx}>
                     {dir}
                 </li>
             ) 
         })
 
         let ingredients = this.props.recipe.ingredients.split(' , ').map((ing, idx) => {
-            return(
-                <li key={idx}>
-                    <button 
-                        id="toggle-positive"
+            if (this.props.currUser && this.props.shoppingList.items) {
+            // if (this.props.currUser) {
+                return(
+                    <li 
                         className="toggle-list-item"
-                        onClick={this.handleToggle}>
-                        {this.props.shoppingList.items.includes(ing) ? "-" : "+"}
-                    </button>
-                    {ing}
-                </li>
-            ) 
+                        key={idx}>
+                        <button 
+                            id={this.props.shoppingList.items.includes(ing) ? "toggle-negative" : "toggle-positive"}
+                            onClick={this.handleToggle}>
+                            {this.props.shoppingList.items.includes(ing) ? "-" : "+"}
+                        </button>
+                        {ing}
+                    </li>
+                ) 
+            } else {
+                return(
+                    <li 
+                        className="toggle-list-item"
+                        key={idx}>
+                        {ing}
+                    </li>
+                ) 
+
+            }
         })
 
         let reviews = []
@@ -119,24 +143,36 @@ class RecipeShow extends React.Component {
         if (this.props.reviews && this.props.reviews.length > 0) {
             reviews = this.props.reviews.map((review, idx) => {
                 return(
-                    <ul>
+                    <ul className="show-rating">
                         <label>{"★".repeat(review.rating)}</label>
                         <li key={idx}>{review.body}</li>
                     </ul>
                 ) 
             })
+        } else {
+            reviews = (
+                <ul>
+                    <li>No reviews at the moment</li>
+                </ul>
+            )
         }
 
-        if (this.props.currUser === this.props.recipe.author_id) {
+        if (this.props.currUser && this.props.currUser === this.props.recipe.author_id) {
             return(
                 <div className="show-top-level">
-                       <img src={this.props.recipe.photoUrl}/>
-                    <ul>
-                        <ul>
-                            <li className="title">{this.props.recipe.title}</li>
-                        </ul>
-                        <ul>
-                            <li>{this.props.recipe.description}</li>
+                    <ul className="show-top-level-left">
+                        <img src={this.props.recipe.photoUrl}/>
+                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
+                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
+                    </ul>
+
+                    <ul className="show-top-level-middle">
+                        <label className="title">{this.props.recipe.title}</label>
+                        <ul className="show-description">Description:
+                            <li>
+                                {this.props.recipe.description}
+                            </li>
                         </ul>
                         <ul className="show-directions">Directions: 
                             {directions}
@@ -144,24 +180,25 @@ class RecipeShow extends React.Component {
                         <ul className="show-ingredients">Ingredients: 
                             {ingredients}
                         </ul>
-                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
-                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
-                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
-                        <button><Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link></button>
-                        <button>
+
+                        <button className="action-buttons">
+                            <Link to={`/recipes/${this.props.recipe.id}/edit`}>Edit</Link>
+                        </button>
+
+                        <button className="action-buttons">
                             <Link to="/your-profile/recipes">Back to profile</Link>
                         </button>
                     </ul>
 
                     <form 
-                        className="review-post-form" 
-                        onSubmit={this.handleSubmit}>
+                        className="show-top-level-right">
+                        {/* onSubmit={this.handleSubmit}> */}
 
                         <label>Reviews:</label>
                         {reviews}
                         <br/>
 
-                        <label>Rating:</label>
+                        {/* <label>Leave a review:</label>
                         <br/>
 
                         <select className="show-review-rating">
@@ -177,6 +214,68 @@ class RecipeShow extends React.Component {
                         <textarea 
                             type="text" 
                             className="show-review-body" />
+                        <br/>
+                        
+                        <button type="submit">Submit Review</button> */}
+                    </form>
+
+                </div>
+            )
+        } else if (this.props.currUser && this.props.currUser !== this.props.recipe.author_id) {
+            return(
+                <div className="show-top-level">
+                    <ul className="show-top-level-left">
+                        <img src={this.props.recipe.photoUrl}/>
+                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
+                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
+                    </ul>
+
+                    <ul className="show-top-level-middle">
+                        <label className="title">{this.props.recipe.title}</label>
+                        <ul className="show-description">Description:
+                            <li>
+                                {this.props.recipe.description}
+                            </li>
+                        </ul>
+                        <ul className="show-directions">Directions: 
+                            {directions}
+                        </ul>
+                        <ul className="show-ingredients">Ingredients: 
+                            {ingredients}
+                        </ul>
+
+                        <button className="action-buttons">
+                            <Link to="/">Back to home</Link>
+                        </button>
+                    </ul>
+
+                    <form 
+                        className="show-top-level-right"
+                        onSubmit={this.handleSubmit}>
+
+                        <label>Reviews:</label>
+                        {reviews}
+                        <br/>
+
+                        <label>Leave a review:</label>
+                        <br/>
+
+                        <select className="show-review-rating">
+                            <option value="0">---</option>
+                            <option value="1">★</option>
+                            <option value="2">★★</option>
+                            <option value="3">★★★</option>
+                            <option value="4">★★★★</option>
+                            <option value="5">★★★★★</option>
+                        </select>
+                        <br/>
+
+                        <textarea 
+                            type="text" 
+                            className="show-review-body" />
+                        <br/>
+                        
                         <button type="submit">Submit Review</button>
                     </form>
 
@@ -184,38 +283,43 @@ class RecipeShow extends React.Component {
             )
         } else {
             return (
+
                 <div className="show-top-level">
+                    <ul className="show-top-level-left">
                         <img src={this.props.recipe.photoUrl}/>
-                    <ul>
-                        <ul>
-                            <li className="title">{this.props.recipe.title}</li>
-                        </ul>
-                        <ul>
-                            <li>{this.props.recipe.description}</li>
+                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
+                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
+                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
+                    </ul>
+
+                    <ul className="show-top-level-middle">
+                        <label className="title">{this.props.recipe.title}</label>
+                        <ul className="show-description">Description:
+                            <li>
+                                {this.props.recipe.description}
+                            </li>
                         </ul>
                         <ul className="show-directions">Directions: 
                             {directions}
                         </ul>
-                        <ul className="show-ingredients">Ingredients: 
+                        <ul className="show-ingredients-sans-user">Ingredients: 
                             {ingredients}
                         </ul>
-                        <li className="num-val">Prep time: {this.props.recipe.prep_time} mins</li>
-                        <li className="num-val">Cook time: {this.props.recipe.cook_time} mins</li>
-                        <li className="num-val">Number of servings: {this.props.recipe.number_of_servings}</li>
-                        <button>
+
+                        <button className="action-buttons">
                             <Link to="/">Back to home</Link>
                         </button>
                     </ul>
 
                     <form 
-                        className="review-post-form" 
-                        onSubmit={this.handleSubmit}>
+                        className="show-top-level-right">
+                        {/* onSubmit={this.handleSubmit}> */}
 
                         <label>Reviews:</label>
                         {reviews}
                         <br/>
 
-                        <label>Rating:</label>
+                        {/* <label>Leave a review:</label>
                         <br/>
 
                         <select className="show-review-rating">
@@ -231,12 +335,13 @@ class RecipeShow extends React.Component {
                         <textarea 
                             type="text" 
                             className="show-review-body" />
-                        <button type="submit">Submit Review</button>
+                        <br/>
+                        
+                        <button type="submit">Submit Review</button> */}
                     </form>
                 </div>
             )
         }
-
     }
 }
 

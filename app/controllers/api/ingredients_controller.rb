@@ -7,7 +7,6 @@ class Api::IngredientsController < ApplicationController
         end
     end
 
-    #just for me
     def destroy
         @ingredient = Ingredient.find(params[:id])
         @ingredient.destroy

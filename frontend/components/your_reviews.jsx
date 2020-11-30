@@ -8,8 +8,6 @@ class YourReviews extends React.Component {
     }
 
     componentDidMount() {
-        debugger
-
         this.props.fetchReviews();
     }
     
@@ -22,48 +20,59 @@ class YourReviews extends React.Component {
 
         // let tempList = this.props.shoppingList
         // let cloneList = { ...tempList }
-        // debugger
-
         
-
         // let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(1))
-
+        debugger
+        
         // cloneList.items = newList
-        let reviewId = parseInt(e.currentTarget.closest('li').id)
-
-        // debugger
+        let reviewId = parseInt(e.currentTarget.closest('ul').id)
+        debugger
 
         this.props.deleteReview(reviewId)
+        // .then(this.props.fetchReviews())
     }
     
     render() {
         let reviews = this.props.reviews.map((review, idx) => {
             return(
-                <li id={review.id} key={idx}>
-                    <button onClick={this.removeReview}>-</button>
-                    {review.rating}
-                    {review.body}
+                <ul className="your-reviews-ul" id={review.id} key={idx}>
+
+                    <button 
+                    className="toggle-negative"
+                    onClick={this.removeReview}>-</button>
+
+                    <li className="ul-rating">    
+                        {review.rating}/5
+                    </li>
+
+                    <li className="ul-body">    
+                        {review.body}
+                    </li>
+
                     <Link to={`/recipes/${review.recipe_id}`}>Go to recipe</Link>
-                </li>
+
+                </ul>
             )
         })
 
-        debugger
-        
         if (reviews.length > 0) {
-            debugger
             return(
-                <div>
-                    <ul>
+                <div className="your-reviews">
+                    <ul className="top-level-ul">
+                        {/* <ul className="review-legend">
+                            <button className="pseudo-button"></button>
+                            <li>Rating</li>
+                            <li>Review</li>
+                            <li></li>
+                        </ul> */}
                         {reviews}
                     </ul>
                 </div>
             )
         } else {
-            debugger
             return(
-                <div>
-                    <ul>
+                <div className="your-reviews-empty">
+                    <ul className="top-level-ul">
                         <li>You have no reviews at the moment</li>
                     </ul>
                 </div>

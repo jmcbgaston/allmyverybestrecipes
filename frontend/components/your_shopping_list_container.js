@@ -5,9 +5,7 @@ import { fetchShoppingList, updateShoppingList } from '../actions/shopping_list_
 const mSTP = state => {
     let currUser = state.session.currentUser
     let shoppingList = state.entities.shoppingList
-
-    debugger
-
+    
     return {
         shoppingList, 
         currUser

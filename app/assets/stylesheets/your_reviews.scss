@@ -1,0 +1,91 @@
+.your-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-family: "Source Sans Pro", serif;
+
+    .top-level-ul {
+
+        // .review-legend {
+        //     display: flex;
+
+        //     .pseudo-button {
+        //         width: 5%;
+        //         display: none;
+        //     }
+
+        //     li:nth-child(1) {
+        //         width: 5%;
+        //     }
+    
+        //     li:nth-child(2) {
+        //         width: 5%;
+        //         text-align: center;
+        //     }
+            
+        //     li:nth-child(3) {
+        //         width: 75%;
+        //         text-align: center;
+        //     }
+    
+        //     li:nth-child(4) {
+        //         width: 15%;
+        //     }
+        // }
+
+        .your-reviews-ul {
+            // justify-content: flex-start;
+            /* margin-left: 0px; */
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-weight: lighter;
+            padding: 10px 0 10px 0;
+            // border-bottom: solid 0.1px #f2f2f2;
+
+            .review-legend button {
+                width: 5%;
+            }
+
+            .ul-rating {
+                width: 5%;
+            }
+
+            .ul-body {
+                width: 75%;
+                margin: 0 10px 0 10px;
+                min-width: 447px;
+                text-align: center;
+            }
+
+            a {
+                width: 15%;
+            }
+        }
+    
+        .your-reviews-ul:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+        
+        .toggle-negative {
+            margin-left: 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            border-color: lightcoral;
+            background-color: lightcoral;
+            border-style: inset;
+            width: 30px;
+            height: 30px;
+            margin-right: 30px;
+        }
+    }
+}
+
+.your-reviews-empty {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: "Source Sans Pro", serif;
+    font-size: 30px;
+}
