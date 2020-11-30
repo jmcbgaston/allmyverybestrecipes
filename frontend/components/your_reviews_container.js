@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import YourReviews from './your_reviews'
-import { fetchReviews } from '../actions/review_actions'
+import { fetchReviews, deleteReview } from '../actions/review_actions'
 
 const mSTP = state => {
     let allReviews = Object.values(state.entities.reviews)
@@ -23,7 +23,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        fetchReviews: () => dispatch(fetchReviews())
+        fetchReviews: () => dispatch(fetchReviews()), 
+        deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
     }
 }
 

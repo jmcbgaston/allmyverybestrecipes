@@ -16,20 +16,20 @@ class RecipeShow extends React.Component {
         this.props.fetchShoppingList(this.props.currUser)
     }
 
-    componentWillUnmount() {
-        debugger
+    // componentWillUnmount() {
+    //     debugger
 
-        let tempList = this.props.shoppingList
-        let cloneList = { ...tempList }
-        debugger
+    //     let tempList = this.props.shoppingList
+    //     let cloneList = { ...tempList }
+    //     debugger
 
-        let newList = cloneList.items.concat(this.list)
-        cloneList.items = newList
+    //     let newList = cloneList.items.concat(this.list)
+    //     cloneList.items = newList
 
-        debugger
+    //     debugger
 
-        this.props.updateShoppingList(cloneList)
-    }
+    //     this.props.updateShoppingList(cloneList)
+    // }
     
     handleToggle(e) {
         debugger
@@ -38,25 +38,33 @@ class RecipeShow extends React.Component {
 
         let ele = e.currentTarget
         let item = e.currentTarget.closest('li').innerText.slice(1)
+        let tempList = this.props.shoppingList
+        let cloneList = { ...tempList }
 
         if (ele.innerText === "+") {
-            if (!this.props.shoppingList.items.includes(item)) {
-                this.list.push(item)
-            }
             debugger
+            // if (!this.props.shoppingList.items.includes(item)) {
+            //     this.list.push(item)
+            // }
             ele.innerText = "-"
             ele.id = "toggle-negative"
-            debugger
+            // let tempList = this.props.shoppingList
+            // let cloneList = { ...tempList }
+            let newList = cloneList.items.concat(item)
+            cloneList.items = newList
+            this.props.updateShoppingList(cloneList)
         } else {
-            let filtered = this.list.filter(ele => ele !== item)
-            this.list = filtered
             debugger
+            // let filtered = this.list.filter(ele => ele !== item)
+            // this.list = filtered
             ele.innerText = "+"
             ele.id = "toggle-positive"
-            debugger
+            // let tempList = this.props.shoppingList
+            // let cloneList = { ...tempList }
+            let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(1))
+            cloneList.items = newList
+            this.props.updateShoppingList(cloneList)
         }
-
-        debugger
     }
 
     handleSubmit(e) {
@@ -98,7 +106,9 @@ class RecipeShow extends React.Component {
                     <button 
                         id="toggle-positive"
                         className="toggle-list-item"
-                        onClick={this.handleToggle}>+</button>
+                        onClick={this.handleToggle}>
+                        {this.props.shoppingList.items.includes(ing) ? "-" : "+"}
+                    </button>
                     {ing}
                 </li>
             ) 

@@ -32,6 +32,11 @@ export const fetchShoppingList = (listId) => {
     return (dispatch => {
         return ListAPIUtil.fetchShoppingList(listId)
             .then(list => {
+
+                if (list.items === null) {
+                    list.items = []
+                }
+
                 return dispatch(receiveList(list))
             }, error => {
                 return dispatch(receiveListErrors(error.responseJSON))
@@ -45,6 +50,12 @@ export const updateShoppingList = (list) => {
     return (dispatch => {
         return ListAPIUtil.updateShoppingList(list)
             .then(updatedList => {
+                debugger
+
+                if (updatedList.items === null) {
+                    updatedList.items = []
+                }
+
                 debugger
                 
                 return dispatch(receiveList(updatedList))

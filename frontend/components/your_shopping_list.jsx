@@ -3,38 +3,57 @@ import React from 'react'
 class YourShoppingList extends React.Component {
     constructor(props) {
         super(props)
+        this.removeFromList = this.removeFromList.bind(this)
     }
 
     componentDidMount() {
+        this.props.fetchShoppingList(this.props.currUser)
+    }
+
+    removeFromList(e) {
+        e.preventDefault()
+
+        let tempList = this.props.shoppingList
+        let cloneList = { ...tempList }
         debugger
 
-        this.props.fetchShoppingList(this.props.currUser)
+        let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(1))
+
+        cloneList.items = newList
+
+        this.props.updateShoppingList(cloneList)
     }
     
     render() {
-        debugger;
 
-        if (!this.props.shoppingList) {
+        if (!this.props.shoppingList.items) {
             return null
         }
 
-        let list = this.props.shoppingList.map((ele, idx) => {
-            debugger
-
+        let list = this.props.shoppingList.items.map((ele, idx) => {
             return(
                 <li key={idx}>
+                    <button onClick={this.removeFromList}>-</button>
                     {ele}
                 </li>
             )
         })
 
-        return(
-            <div>
+        if (list.length === 0) {
+            return(
                 <ul>Shopping List
-                    {list}
+                    <li>Nothing on the shopping list yet!</li>
                 </ul>
-            </div>
-        )
+            )
+        } else {
+            return(
+                <div>
+                    <ul>Shopping List
+                        {list}
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 

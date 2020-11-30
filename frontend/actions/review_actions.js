@@ -86,6 +86,8 @@ export const updateReview = (review) => {
 }
 
 export const deleteReview = (reviewId) => {
+    debugger
+    
     return (dispatch => {
         return ReviewAPIUtil.deleteReview(reviewId)
             .then(() => {

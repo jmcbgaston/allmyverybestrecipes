@@ -11,6 +11,8 @@ const reviewsReducer = (oldState = [], action) => {
             newState[action.review.id] = action.review
             return newState
         case REMOVE_REVIEW:
+            debugger
+            
             delete oldState[action.reviewId]
             return oldState
         default:
