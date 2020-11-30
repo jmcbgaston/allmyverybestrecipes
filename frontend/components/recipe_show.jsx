@@ -5,16 +5,59 @@ class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleToggle = this.handleToggle.bind(this)
+
+        this.list = []
     }
 
     componentDidMount() {
         this.props.fetchRecipe(this.props.match.params.recipeId)
         this.props.fetchReviews()
+        this.props.fetchShoppingList(this.props.currUser)
+    }
+
+    componentWillUnmount() {
+        debugger
+
+        let tempList = this.props.shoppingList
+        let cloneList = { ...tempList }
+        debugger
+
+        let newList = cloneList.items.concat(this.list)
+        cloneList.items = newList
+
+        debugger
+
+        this.props.updateShoppingList(cloneList)
     }
     
-    // componentDidUpdate() {
-    //     this.props.fetchReviews()
-    // }
+    handleToggle(e) {
+        debugger
+
+        e.preventDefault()
+
+        let ele = e.currentTarget
+        let item = e.currentTarget.closest('li').innerText.slice(1)
+
+        if (ele.innerText === "+") {
+            if (!this.props.shoppingList.items.includes(item)) {
+                this.list.push(item)
+            }
+            debugger
+            ele.innerText = "-"
+            ele.id = "toggle-negative"
+            debugger
+        } else {
+            let filtered = this.list.filter(ele => ele !== item)
+            this.list = filtered
+            debugger
+            ele.innerText = "+"
+            ele.id = "toggle-positive"
+            debugger
+        }
+
+        debugger
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -52,6 +95,10 @@ class RecipeShow extends React.Component {
         let ingredients = this.props.recipe.ingredients.split(' , ').map((ing, idx) => {
             return(
                 <li key={idx}>
+                    <button 
+                        id="toggle-positive"
+                        className="toggle-list-item"
+                        onClick={this.handleToggle}>+</button>
                     {ing}
                 </li>
             ) 

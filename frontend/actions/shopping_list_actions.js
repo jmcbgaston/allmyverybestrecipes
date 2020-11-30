@@ -40,9 +40,13 @@ export const fetchShoppingList = (listId) => {
 }
 
 export const updateShoppingList = (list) => {
+    debugger
+    
     return (dispatch => {
         return ListAPIUtil.updateShoppingList(list)
             .then(updatedList => {
+                debugger
+                
                 return dispatch(receiveList(updatedList))
             }, error => {
                 return dispatch(receiveListErrors(error.responseJSON))

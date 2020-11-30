@@ -21,7 +21,7 @@ const NavBar = props => {
                     </li>
                     <p>MORE</p>
                     <li>
-                        Shopping List
+                        <Link to="/your-profile/shopping-list">Shopping List</Link>
                     </li>
                 </ul>
             </button>
