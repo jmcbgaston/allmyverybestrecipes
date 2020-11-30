@@ -14,8 +14,26 @@ class YourShoppingList extends React.Component {
     render() {
         debugger;
 
+        if (!this.props.shoppingList) {
+            return null
+        }
+
+        let list = this.props.shoppingList.map((ele, idx) => {
+            debugger
+
+            return(
+                <li key={idx}>
+                    {ele}
+                </li>
+            )
+        })
+
         return(
-            <h1>I AM THE SHOPPING LIST COMPONENT</h1>
+            <div>
+                <ul>Shopping List
+                    {list}
+                </ul>
+            </div>
         )
     }
 }
