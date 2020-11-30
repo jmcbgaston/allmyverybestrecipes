@@ -11,8 +11,6 @@ class RecipeShow extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
-
         this.props.fetchRecipe(this.props.match.params.recipeId)
         this.props.fetchReviews()
         if (this.props.currUser) {
@@ -21,11 +19,8 @@ class RecipeShow extends React.Component {
     }
 
     // componentDidUpdate() {
-    //     debugger
         
     //     if (this.props.currUser && !this.props.shoppingList.items) {
-    //         debugger
-
     //         this.props.fetchShoppingList(this.props.currUser)
     //     }
     // }
@@ -96,8 +91,6 @@ class RecipeShow extends React.Component {
         }
 
         // if (this.props.currUser && this.props.shoppingList.items === undefined) {
-        //     debugger
-
         //     return null
         // }
 

@@ -22,11 +22,9 @@ class YourReviews extends React.Component {
         // let cloneList = { ...tempList }
         
         // let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(1))
-        debugger
         
         // cloneList.items = newList
         let reviewId = parseInt(e.currentTarget.closest('ul').id)
-        debugger
 
         this.props.deleteReview(reviewId)
         // .then(this.props.fetchReviews())
