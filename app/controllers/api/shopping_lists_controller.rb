@@ -1,5 +1,4 @@
 class Api::ShoppingListsController < ApplicationController
-
     def show
         @shopping_list = ShoppingList.find_by(id: params[:id])
         render "api/shopping_lists/show"
@@ -15,5 +14,4 @@ class Api::ShoppingListsController < ApplicationController
             render json: @shopping_list.errors.full_messages, status: 422
         end 
     end
-    
 end

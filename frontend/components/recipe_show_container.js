@@ -50,8 +50,7 @@ const mDTP = dispatch => {
         createReview: review => dispatch(createReview(review)), 
         fetchReviews: () => dispatch(fetchReviews()), 
         fetchShoppingList: listId => dispatch(fetchShoppingList(listId)), 
-        updateShoppingList: list => dispatch(updateShoppingList(list)), 
-        // fetchEmptyList: () => dispatch(fetchEmptyList())
+        updateShoppingList: list => dispatch(updateShoppingList(list))
     }
 }
 

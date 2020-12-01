@@ -27,23 +27,14 @@ class RecipeShow extends React.Component {
         let cloneList = { ...tempList }
 
         if (ele.innerText === "+") {
-            // if (!this.props.shoppingList.items.includes(item)) {
-            //     this.list.push(item)
-            // }
             ele.innerText = "-"
             ele.id = "toggle-negative"
-            // let tempList = this.props.shoppingList
-            // let cloneList = { ...tempList }
             let newList = cloneList.items.concat(item)
             cloneList.items = newList
             this.props.updateShoppingList(cloneList)
         } else {
-            // let filtered = this.list.filter(ele => ele !== item)
-            // this.list = filtered
             ele.innerText = "+"
             ele.id = "toggle-positive"
-            // let tempList = this.props.shoppingList
-            // let cloneList = { ...tempList }
             let newList = cloneList.items.filter(item => item !== e.currentTarget.closest('li').innerText.slice(1))
             cloneList.items = newList
             this.props.updateShoppingList(cloneList)
@@ -74,10 +65,6 @@ class RecipeShow extends React.Component {
         if (this.props.recipe === undefined) {
             return null
         }
-
-        // if (this.props.currUser && this.props.shoppingList.items === undefined) {
-        //     return null
-        // }
 
         let directions = this.props.recipe.directions.split(' , ').map((dir, idx) => {
             return(
@@ -169,31 +156,10 @@ class RecipeShow extends React.Component {
 
                     <form 
                         className="show-top-level-right">
-                        {/* onSubmit={this.handleSubmit}> */}
 
                         <label>Reviews:</label>
                         {reviews}
                         <br/>
-
-                        {/* <label>Leave a review:</label>
-                        <br/>
-
-                        <select className="show-review-rating">
-                            <option value="0">---</option>
-                            <option value="1">★</option>
-                            <option value="2">★★</option>
-                            <option value="3">★★★</option>
-                            <option value="4">★★★★</option>
-                            <option value="5">★★★★★</option>
-                        </select>
-                        <br/>
-
-                        <textarea 
-                            type="text" 
-                            className="show-review-body" />
-                        <br/>
-                        
-                        <button type="submit">Submit Review</button> */}
                     </form>
 
                 </div>
@@ -290,31 +256,10 @@ class RecipeShow extends React.Component {
 
                     <form 
                         className="show-top-level-right">
-                        {/* onSubmit={this.handleSubmit}> */}
 
                         <label>Reviews:</label>
                         {reviews}
                         <br/>
-
-                        {/* <label>Leave a review:</label>
-                        <br/>
-
-                        <select className="show-review-rating">
-                            <option value="0">---</option>
-                            <option value="1">★</option>
-                            <option value="2">★★</option>
-                            <option value="3">★★★</option>
-                            <option value="4">★★★★</option>
-                            <option value="5">★★★★★</option>
-                        </select>
-                        <br/>
-
-                        <textarea 
-                            type="text" 
-                            className="show-review-body" />
-                        <br/>
-                        
-                        <button type="submit">Submit Review</button> */}
                     </form>
                 </div>
             )
