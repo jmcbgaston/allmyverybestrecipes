@@ -7,7 +7,7 @@ class RecipeIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchRecipes();
+        this.props.fetchRecipes()
     }
 
     render() {

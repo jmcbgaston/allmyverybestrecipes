@@ -1,7 +1,6 @@
 import { connect } from "react-redux"
 import NavBar from "./nav_bar"
 import { logout, login } from "../actions/session_actions"
-import { fetchShoppingList } from "../actions/shopping_list_actions"
 
 const mSTP = ({ entities: { users }, session }) => {
 // why can do ^ this here but not in my presentational component

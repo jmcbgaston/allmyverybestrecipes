@@ -2,8 +2,11 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        @user.save
         @shopping_list = ShoppingList.new(owner_id: @user.id)
-        if @user.save && @shopping_list.save
+        @shopping_list.save
+        
+        if @user && @shopping_list
             login!(@user)
             render "/api/users/show"
         else

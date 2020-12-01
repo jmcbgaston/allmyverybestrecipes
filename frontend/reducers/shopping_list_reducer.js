@@ -1,4 +1,4 @@
-import { RECEIVE_LIST } from '../actions/shopping_list_actions'
+import { RECEIVE_LIST, RECEIVE_EMPTY_LIST } from '../actions/shopping_list_actions'
 
 const shoppingListReducer = (oldState = {}, action) => {
     Object.freeze(oldState);

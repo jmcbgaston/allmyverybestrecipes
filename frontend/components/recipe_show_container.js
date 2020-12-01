@@ -3,11 +3,12 @@ import RecipeShow from './recipe_show'
 import { fetchRecipe } from '../actions/recipe_actions'
 import { fetchReviews, createReview } from '../actions/review_actions'
 import { fetchShoppingList, updateShoppingList } from '../actions/shopping_list_actions'
+// import { fetchEmptyList } from '../actions/shopping_list_actions';
+
 
 const mSTP = (state, ownProps) => {
 
     let recipe = state.entities.recipes[ownProps.match.params.recipeId]
-    
     let reviews = Object.values(state.entities.reviews)
     let filtered = []
      
@@ -19,18 +20,28 @@ const mSTP = (state, ownProps) => {
         })
     }
 
+    let sList = {}
+
+    if (state.session.currentUser) {
+        sList = state.entities.shoppingList
+    } else {
+        sList = {}
+    }
+
+    // debugger
+
     if (filtered.length > 0) {
         return {
             recipe: recipe, 
             reviews: filtered, 
             currUser: state.session.currentUser, 
-            shoppingList: state.entities.shoppingList
+            shoppingList: sList
         }
     } else {
         return {
             recipe: recipe, 
             currUser: state.session.currentUser, 
-            shoppingList: state.entities.shoppingList
+            shoppingList: sList
         }
     }
 }
@@ -41,7 +52,8 @@ const mDTP = dispatch => {
         createReview: review => dispatch(createReview(review)), 
         fetchReviews: () => dispatch(fetchReviews()), 
         fetchShoppingList: listId => dispatch(fetchShoppingList(listId)), 
-        updateShoppingList: list => dispatch(updateShoppingList(list))
+        updateShoppingList: list => dispatch(updateShoppingList(list)), 
+        // fetchEmptyList: () => dispatch(fetchEmptyList())
     }
 }
 

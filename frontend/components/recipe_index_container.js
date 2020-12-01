@@ -3,15 +3,18 @@ import RecipeIndex from './recipe_index';
 import { fetchRecipes, deleteRecipe } from '../actions/recipe_actions';
 
 const mSTP = state => {
+    // debugger
+
     return {
-        recipes: Object.values(state.entities.recipes)
+        recipes: Object.values(state.entities.recipes), 
+        currUser: state.session.currUser
     }
 }
 
 const mDTP = dispatch => {
     return {
         fetchRecipes: recipes => dispatch(fetchRecipes(recipes)), 
-        deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId))
+        deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId)), 
     }
 }
 
