@@ -91,9 +91,6 @@ class RecipeShow extends React.Component {
 
         let ingredients = this.props.recipe.ingredients.split(' , ').map((ing, idx) => {
             if (this.props.currUser && this.props.shoppingList.items) {
-
-                debugger
-            // if (this.props.currUser) {
                 return(
                     <li 
                         className="toggle-list-item"
@@ -107,9 +104,6 @@ class RecipeShow extends React.Component {
                     </li>
                 ) 
             } else {
-
-                debugger
-                
                 return(
                     <li 
                         className="toggle-list-item"

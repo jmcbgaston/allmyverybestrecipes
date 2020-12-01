@@ -13,13 +13,6 @@ const receiveList = list => {
     }
 }
 
-// const receiveEmptyList = () => {
-//     return {
-//         type: RECEIVE_EMPTY_LIST, 
-//         eList: {}
-//     }
-// }
-
 const receiveListErrors = errors => {
     return {
         type: RECEIVE_LIST_ERRORS, 
@@ -35,8 +28,6 @@ export const removeListErrors = () => {
 }
 
 export const fetchShoppingList = (listId) => {
-    // debugger
-    
     return (dispatch => {
         return ListAPIUtil.fetchShoppingList(listId)
             .then(list => {
@@ -52,11 +43,6 @@ export const fetchShoppingList = (listId) => {
     })
 }
 
-// export const fetchEmptyList = () => {
-//     // debugger
-
-//     return dispatch(receiveEmptyList())
-// }
 
 export const updateShoppingList = (list) => {
     return (dispatch => {

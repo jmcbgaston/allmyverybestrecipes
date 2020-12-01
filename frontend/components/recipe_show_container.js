@@ -28,8 +28,6 @@ const mSTP = (state, ownProps) => {
         sList = {}
     }
 
-    // debugger
-
     if (filtered.length > 0) {
         return {
             recipe: recipe, 
