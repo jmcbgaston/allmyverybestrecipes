@@ -3,8 +3,6 @@ import RecipeShow from './recipe_show'
 import { fetchRecipe } from '../actions/recipe_actions'
 import { fetchReviews, createReview } from '../actions/review_actions'
 import { fetchShoppingList, updateShoppingList } from '../actions/shopping_list_actions'
-// import { fetchEmptyList } from '../actions/shopping_list_actions';
-
 
 const mSTP = (state, ownProps) => {
 

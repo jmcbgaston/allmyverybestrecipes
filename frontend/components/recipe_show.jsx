@@ -18,6 +18,12 @@ class RecipeShow extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.currUser === null && this.props.currUser) {
+            this.props.fetchShoppingList(this.props.currUser)
+        }
+    }
+
     handleToggle(e) {
         e.preventDefault()
 
