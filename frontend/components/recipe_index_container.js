@@ -3,8 +3,8 @@ import RecipeIndex from './recipe_index';
 import { fetchRecipes, deleteRecipe } from '../actions/recipe_actions';
 
 const mSTP = state => {
-    // debugger
-
+    state.entities.shoppingList = {}
+    
     return {
         recipes: Object.values(state.entities.recipes), 
         currUser: state.session.currUser

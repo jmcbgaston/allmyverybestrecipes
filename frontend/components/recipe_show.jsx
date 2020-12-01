@@ -18,21 +18,6 @@ class RecipeShow extends React.Component {
         }
     }
 
-    // componentDidUpdate() {
-        
-    //     if (this.props.currUser && !this.props.shoppingList.items) {
-    //         this.props.fetchShoppingList(this.props.currUser)
-    //     }
-    // }
-
-    // componentWillUnmount() {
-    //     let tempList = this.props.shoppingList
-    //     let cloneList = { ...tempList }
-    //     let newList = cloneList.items.concat(this.list)
-    //     cloneList.items = newList
-    //     this.props.updateShoppingList(cloneList)
-    // }
-    
     handleToggle(e) {
         e.preventDefault()
 
