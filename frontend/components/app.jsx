@@ -17,6 +17,17 @@ const App = () => {
   return (
     <div className="content-container">
       <header className="header-bar">
+
+        <meta name="description" content="AllMyVeryBestRecipes App" />
+        <meta name="title" property="og:title" content="AllMyVeryBestRecipes" />
+        <meta property="og:type" content="Website" />
+        <meta 
+          name="image" 
+          property="og:image" 
+          content="https://live.staticflickr.com/65535/50691044433_e117c4c4f8_k.jpg" />
+        <meta name="description" property="og:description" content="AllMyVeryBestRecipes App" />
+        <meta name="author" content="Jose Gaston" />
+
         <Link to="/">
           <img className="logo" src="/assets/allrecipes-logo.png" alt="logo"/>
         </Link>
