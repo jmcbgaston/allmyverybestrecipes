@@ -6,8 +6,6 @@ class RecipeShow extends React.Component {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleToggle = this.handleToggle.bind(this)
-
-        this.list = []
     }
 
     componentDidMount() {
@@ -109,23 +107,22 @@ class RecipeShow extends React.Component {
         })
 
         let reviews = []
-
-        if (this.props.reviews && this.props.reviews.length > 0) {
-            reviews = this.props.reviews.map((review, idx) => {
-                return(
-                    <ul className="show-rating">
-                        <label>{"★".repeat(review.rating)}</label>
-                        <li key={idx}>{review.body}</li>
+            if (this.props.reviews && this.props.reviews.length > 0) {
+                reviews = this.props.reviews.map((review, idx) => {
+                    return(
+                        <ul className="show-rating">
+                            <label>{"★".repeat(review.rating)}</label>
+                            <li key={idx}>{review.body}</li>
+                        </ul>
+                    ) 
+                })
+            } else {
+                reviews = (
+                    <ul>
+                        <li>No reviews at the moment</li>
                     </ul>
-                ) 
-            })
-        } else {
-            reviews = (
-                <ul>
-                    <li>No reviews at the moment</li>
-                </ul>
-            )
-        }
+                )
+            }
 
         if (this.props.currUser && this.props.currUser === this.props.recipe.author_id) {
             return(

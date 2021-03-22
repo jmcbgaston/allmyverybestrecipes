@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
 import configureStore from './store/store';
 import Root from './components/root'
 
@@ -26,22 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
             session: {
                 currentUser: window.currentUser.id
             }, 
-            // ui: {
-            //     modalOpen: true
-            // }, 
             errors: {
-                // userErrors: [], 
                 sessionErrors: [], 
-                // postErrors: []
             }
         };
         store = configureStore(preloadedState);
-        // delete window.currentUser;
-
         window.getState = store.getState
         window.dispatch = store.dispatch
-
-        // window.fetchRecipes = store.fetchRecipes
     } else {
         store = configureStore();
         
